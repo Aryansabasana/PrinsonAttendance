@@ -14,6 +14,8 @@ import {
   Clock,
   Calendar,
   KeyRound,
+  Eye,
+  EyeOff,
 } from "lucide-react";
 import { getTenantApiUrl, getTenantApiHeaders } from "@/lib/tenant-client";
 
@@ -37,6 +39,9 @@ export function ProfileSettingsView({ company = "plynest" }: ProfileSettingsView
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [submittingPassword, setSubmittingPassword] = useState(false);
 
   // Notification state
@@ -373,42 +378,75 @@ export function ProfileSettingsView({ company = "plynest" }: ProfileSettingsView
                   <label className="block text-xs font-bold text-zinc-900 uppercase tracking-wider mb-1.5">
                     Current Password <span className="text-red-600">*</span>
                   </label>
-                  <input
-                    type="password"
-                    required
-                    value={currentPassword}
-                    onChange={(e) => setCurrentPassword(e.target.value)}
-                    placeholder="••••••••••••"
-                    className="w-full p-2.5 rounded-xl border border-zinc-200 text-xs text-zinc-900 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all"
-                  />
+                  <div className="relative">
+                    <input
+                      type={showCurrentPassword ? "text" : "password"}
+                      required
+                      value={currentPassword}
+                      onChange={(e) => setCurrentPassword(e.target.value)}
+                      placeholder="••••••••••••"
+                      className="w-full pl-2.5 pr-9 py-2.5 rounded-xl border border-zinc-200 text-xs text-zinc-900 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowCurrentPassword(!showCurrentPassword)}
+                      tabIndex={-1}
+                      aria-label={showCurrentPassword ? "Hide password" : "Show password"}
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-700 focus:outline-none p-1 rounded-md transition-colors"
+                    >
+                      {showCurrentPassword ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
+                    </button>
+                  </div>
                 </div>
 
                 <div>
                   <label className="block text-xs font-bold text-zinc-900 uppercase tracking-wider mb-1.5">
                     New Password <span className="text-red-600">*</span>
                   </label>
-                  <input
-                    type="password"
-                    required
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
-                    placeholder="At least 6 characters"
-                    className="w-full p-2.5 rounded-xl border border-zinc-200 text-xs text-zinc-900 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all"
-                  />
+                  <div className="relative">
+                    <input
+                      type={showNewPassword ? "text" : "password"}
+                      required
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
+                      placeholder="At least 6 characters"
+                      className="w-full pl-2.5 pr-9 py-2.5 rounded-xl border border-zinc-200 text-xs text-zinc-900 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowNewPassword(!showNewPassword)}
+                      tabIndex={-1}
+                      aria-label={showNewPassword ? "Hide password" : "Show password"}
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-700 focus:outline-none p-1 rounded-md transition-colors"
+                    >
+                      {showNewPassword ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
+                    </button>
+                  </div>
                 </div>
 
                 <div>
                   <label className="block text-xs font-bold text-zinc-900 uppercase tracking-wider mb-1.5">
                     Confirm New Password <span className="text-red-600">*</span>
                   </label>
-                  <input
-                    type="password"
-                    required
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    placeholder="Repeat new password"
-                    className="w-full p-2.5 rounded-xl border border-zinc-200 text-xs text-zinc-900 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all"
-                  />
+                  <div className="relative">
+                    <input
+                      type={showConfirmPassword ? "text" : "password"}
+                      required
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      placeholder="Repeat new password"
+                      className="w-full pl-2.5 pr-9 py-2.5 rounded-xl border border-zinc-200 text-xs text-zinc-900 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      tabIndex={-1}
+                      aria-label={showConfirmPassword ? "Hide password" : "Show password"}
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-700 focus:outline-none p-1 rounded-md transition-colors"
+                    >
+                      {showConfirmPassword ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
+                    </button>
+                  </div>
                 </div>
 
                 <div className="p-3 rounded-xl bg-zinc-100 border border-zinc-200 text-[11px] text-zinc-600 space-y-1">
