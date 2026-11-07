@@ -320,6 +320,9 @@ async function runTests() {
 
   // Test 15: Unified Login Auto-Detection Across Both Databases
   console.log("\n▶ TEST 15: Unified Login auto-detection routes to correct company");
+  await plynestModels.RateLimit.deleteMany({});
+  await hytekModels.RateLimit.deleteMany({});
+
   const { POST: loginHandler } = await import("../src/app/api/auth/login/route");
   const { NextRequest } = await import("next/server");
 
