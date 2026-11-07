@@ -7,6 +7,7 @@ interface BrandLogoProps {
   href?: string;
   company?: "plynest" | "hytek";
   name?: string;
+  subtitle?: string;
   variant?: "dark" | "light";
 }
 
@@ -16,6 +17,7 @@ export function BrandLogo({
   href,
   company = "plynest",
   name,
+  subtitle = "Attendance Portal",
   variant = "dark",
 }: BrandLogoProps) {
   const brandName = name || (company === "hytek" ? "Prinson Hytek" : "Prinson Plynest");
@@ -72,7 +74,7 @@ export function BrandLogo({
               isLight ? "text-zinc-500" : "text-zinc-400"
             }`}
           >
-            Attendance Portal
+            {subtitle}
           </span>
         </div>
       )}

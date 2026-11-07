@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Prinson Plynest — Employee Attendance Portal",
-  description: "Official Employee Attendance & Leave Management Portal for Prinson Plynest Showroom",
+  title: "Prinson — Attendance Portal",
+  description: "Official Employee Attendance & Leave Management Portal for Prinson Group",
 };
 
 export default function RootLayout({
