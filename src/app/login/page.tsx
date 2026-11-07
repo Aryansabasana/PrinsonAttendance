@@ -3,12 +3,13 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { BrandLogo } from "@/components/ui/BrandLogo";
-import { ShieldCheck, UserCheck, Lock, AlertCircle, ArrowRight, Building2, Check } from "lucide-react";
+import { ShieldCheck, UserCheck, Lock, AlertCircle, ArrowRight, Building2, Check, Eye, EyeOff } from "lucide-react";
 
 export default function LoginPage() {
   const router = useRouter();
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -110,13 +111,26 @@ export default function LoginPage() {
                 </div>
                 <div className="relative">
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••••••"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-zinc-300 focus:border-black focus:ring-1 focus:ring-black bg-zinc-50/50 text-sm text-zinc-900 outline-none transition-all placeholder:text-zinc-400 font-medium"
+                    className="w-full pl-3.5 pr-10 py-2.5 rounded-xl border border-zinc-300 focus:border-black focus:ring-1 focus:ring-black bg-zinc-50/50 text-sm text-zinc-900 outline-none transition-all placeholder:text-zinc-400 font-medium"
                   />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    tabIndex={-1}
+                    aria-label={showPassword ? "Hide password" : "Show password"}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-700 focus:outline-none p-1 rounded-md transition-colors"
+                  >
+                    {showPassword ? (
+                      <EyeOff className="w-4 h-4" />
+                    ) : (
+                      <Eye className="w-4 h-4" />
+                    )}
+                  </button>
                 </div>
               </div>
 
