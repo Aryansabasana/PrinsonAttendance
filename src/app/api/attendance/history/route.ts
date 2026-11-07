@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireTenantUser } from "@/lib/tenant";
 import { assertEmployeeAccess, handleAuthError } from "@/lib/permissions";
+import { escapeRegex } from "@/lib/security";
 
 export async function GET(request: NextRequest) {
   try {
@@ -30,11 +31,12 @@ export async function GET(request: NextRequest) {
     if (targetEmployeeId) {
       query.employee = targetEmployeeId;
     } else if (search) {
+      const escaped = escapeRegex(search);
       // Find matching employees first in this tenant DB
       const matchedEmployees = await models.Employee.find({
         $or: [
-          { fullName: { $regex: search, $options: "i" } },
-          { employeeCode: { $regex: search, $options: "i" } },
+          { fullName: { $regex: escaped, $options: "i" } },
+          { employeeCode: { $regex: escaped, $options: "i" } },
         ],
       }).select("_id");
       query.employee = { $in: matchedEmployees.map((e) => e._id) };

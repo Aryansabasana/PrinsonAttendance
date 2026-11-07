@@ -3,7 +3,13 @@ import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import { CompanyTenant } from "./mongodb";
 
-const JWT_SECRET = process.env.JWT_SECRET || "prinson_plynest_showroom_jwt_secret_secure_key_2026_9876543210";
+const DEFAULT_FALLBACK_SECRET = "prinson_plynest_showroom_jwt_secret_secure_key_2026_9876543210";
+const JWT_SECRET = process.env.JWT_SECRET || DEFAULT_FALLBACK_SECRET;
+
+if (process.env.NODE_ENV === "production" && (!process.env.JWT_SECRET || process.env.JWT_SECRET === DEFAULT_FALLBACK_SECRET)) {
+  console.warn("SECURITY WARNING: JWT_SECRET is using default fallback in production. Configure a unique 32+ character JWT_SECRET in environment variables.");
+}
+
 const secretKey = new TextEncoder().encode(JWT_SECRET);
 
 export const SESSION_COOKIE_NAME = "plynest_session";
@@ -21,10 +27,11 @@ export interface SessionPayload {
   name: string;
   email?: string;
   company?: CompanyTenant;
+  tokenVersion?: number;
 }
 
 export async function hashPassword(plain: string): Promise<string> {
-  const salt = await bcrypt.genSalt(10);
+  const salt = await bcrypt.genSalt(12);
   return bcrypt.hash(plain, salt);
 }
 

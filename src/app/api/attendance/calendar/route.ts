@@ -12,9 +12,22 @@ export async function GET(request: NextRequest) {
     const month = parseInt(searchParams.get("month") || String(now.getMonth() + 1), 10); // 1-12
     let targetEmployeeId = searchParams.get("employeeId") || "";
 
-    // Security: Employee role is locked to self
+    // Security: Employee role is locked strictly to self
     if (user.role === "EMPLOYEE") {
-      targetEmployeeId = user.employeeId?.toString() || "";
+      if (!user.employeeId) {
+        return NextResponse.json(
+          { error: "Forbidden: No employee profile linked to user" },
+          { status: 403 }
+        );
+      }
+      const requestedId = searchParams.get("employeeId");
+      if (requestedId && requestedId !== user.employeeId.toString()) {
+        return NextResponse.json(
+          { error: "Forbidden: Employees can only view their own attendance calendar." },
+          { status: 403 }
+        );
+      }
+      targetEmployeeId = user.employeeId.toString();
     } else if (targetEmployeeId) {
       assertEmployeeAccess(user, targetEmployeeId);
     }
@@ -104,7 +117,14 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    // Company-wide calendar view (Admin only) in this tenant DB
+    // Company-wide calendar view is strictly Admin only
+    if (user.role !== "ADMIN") {
+      return NextResponse.json(
+        { error: "Forbidden: Admin privileges required to view company-wide calendar." },
+        { status: 403 }
+      );
+    }
+
     const [allActiveEmployees, monthlyAttendances] = await Promise.all([
       models.Employee.find({ isActive: true }).select("_id fullName employeeCode designation").lean(),
       models.Attendance.find({

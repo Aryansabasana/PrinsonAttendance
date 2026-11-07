@@ -7,6 +7,7 @@ export interface IUser extends Document {
   employee?: mongoose.Types.ObjectId;
   name: string;
   isActive: boolean;
+  tokenVersion: number;
   lastLogin?: Date;
   createdAt: Date;
   updatedAt: Date;
@@ -47,6 +48,11 @@ export const UserSchema: Schema = new Schema(
     isActive: {
       type: Boolean,
       default: true,
+    },
+    tokenVersion: {
+      type: Number,
+      default: 0,
+      required: true,
     },
     lastLogin: {
       type: Date,

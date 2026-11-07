@@ -2,12 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { requireTenantAdmin } from "@/lib/tenant";
 import { handleAuthError } from "@/lib/permissions";
 import { formatDateStr } from "@/lib/utils";
-
-function escapeCsvCell(val: any): string {
-  if (val === null || val === undefined) return '""';
-  const str = String(val).replace(/"/g, '""');
-  return `"${str}"`;
-}
+import { sanitizeCsvCell } from "@/lib/security";
 
 export async function GET(request: NextRequest) {
   try {
@@ -61,17 +56,17 @@ export async function GET(request: NextRequest) {
     ];
 
     const rows = attendances.map((a: any) => [
-      escapeCsvCell(a.employee?.employeeCode || "N/A"),
-      escapeCsvCell(a.employee?.fullName || "N/A"),
-      escapeCsvCell(a.employee?.designation || "N/A"),
-      escapeCsvCell(a.employee?.department || "N/A"),
-      escapeCsvCell(a.dateStr),
-      escapeCsvCell(a.status),
-      escapeCsvCell(a.checkInTime || "--"),
-      escapeCsvCell(a.checkOutTime || "--"),
-      escapeCsvCell(a.remarks || ""),
-      escapeCsvCell(a.markedBy?.name || "System"),
-      escapeCsvCell(a.updatedAt ? new Date(a.updatedAt).toISOString() : ""),
+      sanitizeCsvCell(a.employee?.employeeCode || "N/A"),
+      sanitizeCsvCell(a.employee?.fullName || "N/A"),
+      sanitizeCsvCell(a.employee?.designation || "N/A"),
+      sanitizeCsvCell(a.employee?.department || "N/A"),
+      sanitizeCsvCell(a.dateStr),
+      sanitizeCsvCell(a.status),
+      sanitizeCsvCell(a.checkInTime || "--"),
+      sanitizeCsvCell(a.checkOutTime || "--"),
+      sanitizeCsvCell(a.remarks || ""),
+      sanitizeCsvCell(a.markedBy?.name || "System"),
+      sanitizeCsvCell(a.updatedAt ? new Date(a.updatedAt).toISOString() : ""),
     ]);
 
     const csvContent = [headers.map((h) => `"${h}"`).join(","), ...rows.map((r) => r.join(","))].join("\r\n");
