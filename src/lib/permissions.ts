@@ -38,6 +38,16 @@ export function assertEmployeeAccess(user: SessionPayload, targetEmployeeId: str
 }
 
 export function handleAuthError(error: unknown) {
+  // Rethrow Next.js dynamic bailouts so build static generation doesn't treat them as application crashes
+  if (
+    typeof error === "object" &&
+    error !== null &&
+    "digest" in error &&
+    (error as any).digest === "DYNAMIC_SERVER_USAGE"
+  ) {
+    throw error;
+  }
+
   if (error instanceof AuthError) {
     return NextResponse.json({ error: error.message }, { status: error.status });
   }
@@ -47,3 +57,4 @@ export function handleAuthError(error: unknown) {
     { status: 500 }
   );
 }
+
