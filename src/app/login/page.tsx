@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { BrandLogo } from "@/components/ui/BrandLogo";
-import { ShieldCheck, UserCheck, Lock, AlertCircle, ArrowRight, Building2, Check, Eye, EyeOff } from "lucide-react";
+import { AlertCircle, ArrowRight, Building2, Eye, EyeOff } from "lucide-react";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -43,12 +43,6 @@ export default function LoginPage() {
     } finally {
       setLoading(false);
     }
-  };
-
-  const fillCredentials = (id: string, pass: string) => {
-    setIdentifier(id);
-    setPassword(pass);
-    setError(null);
   };
 
   return (
@@ -153,75 +147,7 @@ export default function LoginPage() {
               </button>
             </form>
 
-            {/* Quick Demo Credentials Box */}
-            <div className="mt-8 pt-6 border-t border-zinc-200">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-[11px] font-extrabold uppercase tracking-wider text-zinc-500">
-                  Quick Demo Access
-                </span>
-                <span className="text-[10px] bg-zinc-100 text-zinc-700 px-2 py-0.5 rounded-full font-medium border border-zinc-200">
-                  Click to prefill
-                </span>
-              </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                <button
-                  type="button"
-                  onClick={() => fillCredentials("admin@plynest.com", "AdminPassword123!")}
-                  className="p-3 rounded-xl border border-zinc-200 bg-zinc-50 hover:bg-zinc-100 hover:border-zinc-300 text-left transition-colors group"
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <ShieldCheck className="w-3.5 h-3.5 text-black group-hover:text-zinc-600" />
-                    <span className="text-xs font-bold text-black">Plynest Admin</span>
-                  </div>
-                  <p className="text-[10px] text-zinc-500 truncate font-mono">
-                    admin@plynest.com
-                  </p>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => fillCredentials("admin@hytek.com", "HytekAdmin123!")}
-                  className="p-3 rounded-xl border border-zinc-200 bg-zinc-50 hover:bg-zinc-100 hover:border-zinc-300 text-left transition-colors group"
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <ShieldCheck className="w-3.5 h-3.5 text-black group-hover:text-zinc-600" />
-                    <span className="text-xs font-bold text-black">Hytek Admin</span>
-                  </div>
-                  <p className="text-[10px] text-zinc-500 truncate font-mono">
-                    admin@hytek.com
-                  </p>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => fillCredentials("ketan@gmail.com", "123456")}
-                  className="p-3 rounded-xl border border-zinc-200 bg-zinc-50 hover:bg-zinc-100 hover:border-zinc-300 text-left transition-colors group"
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <UserCheck className="w-3.5 h-3.5 text-black group-hover:text-zinc-600" />
-                    <span className="text-xs font-bold text-black">Plynest: Ketan (PP-001)</span>
-                  </div>
-                  <p className="text-[10px] text-zinc-500 truncate font-mono">
-                    ketan@gmail.com
-                  </p>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => fillCredentials("arun@hytek.com", "Hytek@123")}
-                  className="p-3 rounded-xl border border-zinc-200 bg-zinc-50 hover:bg-zinc-100 hover:border-zinc-300 text-left transition-colors group"
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <UserCheck className="w-3.5 h-3.5 text-black group-hover:text-zinc-600" />
-                    <span className="text-xs font-bold text-black">Hytek: Arun (PH-101)</span>
-                  </div>
-                  <p className="text-[10px] text-zinc-500 truncate font-mono">
-                    arun@hytek.com
-                  </p>
-                </button>
-              </div>
-            </div>
           </div>
 
           {/* Security badge footer */}
