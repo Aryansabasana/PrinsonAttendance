@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { requireTenantUser, requireTenantAdmin } from "@/lib/tenant";
 import { handleAuthError } from "@/lib/permissions";
 import { hashPassword } from "@/lib/auth";
+import { escapeRegex } from "@/lib/security";
 import { z } from "zod";
 
 const createEmployeeSchema = z.object({
@@ -18,7 +19,7 @@ const createEmployeeSchema = z.object({
 
 export async function GET(request: NextRequest) {
   try {
-    const { models } = await requireTenantUser(request);
+    const { models } = await requireTenantAdmin(request);
 
     const { searchParams } = new URL(request.url);
     const search = searchParams.get("search")?.trim() || "";
@@ -45,11 +46,12 @@ export async function GET(request: NextRequest) {
     }
 
     if (search) {
+      const escaped = escapeRegex(search);
       query.$or = [
-        { fullName: { $regex: search, $options: "i" } },
-        { employeeCode: { $regex: search, $options: "i" } },
-        { phone: { $regex: search, $options: "i" } },
-        { email: { $regex: search, $options: "i" } },
+        { fullName: { $regex: escaped, $options: "i" } },
+        { employeeCode: { $regex: escaped, $options: "i" } },
+        { phone: { $regex: escaped, $options: "i" } },
+        { email: { $regex: escaped, $options: "i" } },
       ];
     }
 

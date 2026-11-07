@@ -15,7 +15,7 @@ const markAttendanceSchema = z.object({
 
 export async function GET(request: NextRequest) {
   try {
-    const { tenant, models } = await requireTenantUser(request);
+    const { tenant, models } = await requireTenantAdmin(request);
 
     const { searchParams } = new URL(request.url);
     const dateStr = searchParams.get("dateStr") || formatDateStr(new Date());

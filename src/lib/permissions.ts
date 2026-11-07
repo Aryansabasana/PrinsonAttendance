@@ -52,8 +52,15 @@ export function handleAuthError(error: unknown) {
     return NextResponse.json({ error: error.message }, { status: error.status });
   }
   console.error("Internal API error:", error);
+  const isProd = process.env.NODE_ENV === "production";
   return NextResponse.json(
-    { error: error instanceof Error ? error.message : "Internal Server Error" },
+    {
+      error: isProd
+        ? "An internal server error occurred. Please contact the administrator."
+        : error instanceof Error
+        ? error.message
+        : "Internal Server Error",
+    },
     { status: 500 }
   );
 }

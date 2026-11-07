@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { CompanyTenant, getTenantModels, TenantModels } from "./mongodb";
-import { getCurrentUser, SessionPayload } from "./auth";
+import { getCurrentUser, getSessionCookieName, verifySessionToken, SessionPayload } from "./auth";
 import { AuthError } from "./permissions";
 
 /**
@@ -52,7 +52,17 @@ export async function getTenantContext(
   forcedTenant?: CompanyTenant
 ): Promise<TenantContext> {
   const tenant = forcedTenant || resolveTenantFromRequest(request);
-  const user = await getCurrentUser(tenant);
+  let user = await getCurrentUser(tenant);
+  if (!user && request.cookies) {
+    const cookieName = getSessionCookieName(tenant);
+    const token = request.cookies.get(cookieName)?.value;
+    if (token) {
+      const session = await verifySessionToken(token);
+      if (session && (tenant === "hytek" ? session.company === "hytek" : session.company !== "hytek")) {
+        user = session;
+      }
+    }
+  }
   const models = await getTenantModels(tenant);
 
   return {
@@ -66,16 +76,50 @@ export async function getTenantContext(
  * Enforces authenticated access for the specific tenant.
  * Rejects with 401 if not logged into that company.
  */
+import { validateRequestOrigin } from "./security";
+
 export async function requireTenantUser(
   request: NextRequest,
   forcedTenant?: CompanyTenant
 ): Promise<{ tenant: CompanyTenant; user: SessionPayload; models: TenantModels }> {
+  // CSRF Mitigation: Verify Origin / Referer for browser-initiated state mutations
+  if (request.method !== "GET" && request.method !== "HEAD" && request.method !== "OPTIONS") {
+    if (!validateRequestOrigin(request)) {
+      throw new AuthError("Forbidden: Cross-site request rejected (Origin validation failed).", 403);
+    }
+  }
+
   const tenant = forcedTenant || resolveTenantFromRequest(request);
-  const user = await getCurrentUser(tenant);
+  let user = await getCurrentUser(tenant);
+  if (!user && request.cookies) {
+    const cookieName = getSessionCookieName(tenant);
+    const token = request.cookies.get(cookieName)?.value;
+    if (token) {
+      const session = await verifySessionToken(token);
+      if (session && (tenant === "hytek" ? session.company === "hytek" : session.company !== "hytek")) {
+        user = session;
+      }
+    }
+  }
   if (!user) {
     throw new AuthError(`Authentication required for ${tenant === "hytek" ? "Prinson Hytek" : "Prinson Plynest"}. Please sign in.`, 401);
   }
+
   const models = await getTenantModels(tenant);
+  const dbUser = await models.User.findById(user.userId).select("isActive tokenVersion").lean();
+
+  if (!dbUser || !dbUser.isActive) {
+    throw new AuthError("Session invalid or account deactivated. Please sign in again.", 401);
+  }
+
+  if (
+    user.tokenVersion !== undefined &&
+    dbUser.tokenVersion !== undefined &&
+    dbUser.tokenVersion > user.tokenVersion
+  ) {
+    throw new AuthError("Session has been revoked due to a password or credential change. Please sign in again.", 401);
+  }
+
   return { tenant, user, models };
 }
 

@@ -4,6 +4,11 @@ import { comparePassword, signSessionToken, getSessionCookieName } from "@/lib/a
 import { resolveTenantFromRequest } from "@/lib/tenant";
 import { z } from "zod";
 
+import { checkAuthRateLimit, createRateLimitResponse, getClientIp } from "@/lib/rate-limit";
+
+// Pre-computed dummy bcrypt hash to guarantee constant-time verification when account is not found
+const DUMMY_HASH = "$2a$12$e8kPq6sN4JwH2yJ9s3XoPe987654321098765432109876543210";
+
 const loginSchema = z.object({
   identifier: z.string().min(1, "Username, email, or Employee ID is required"),
   password: z.string().min(1, "Password is required"),
@@ -23,6 +28,13 @@ export async function POST(request: NextRequest) {
     }
 
     const { identifier, password, company: bodyCompany } = parsed.data;
+
+    // Rate limiting: 5 failed attempts per 15 minutes per IP & identifier
+    const rateLimit = await checkAuthRateLimit(identifier, request, bodyCompany || "plynest");
+    if (!rateLimit.allowed) {
+      return createRateLimitResponse(rateLimit);
+    }
+
     const cleanId = identifier.trim().toLowerCase();
     const escapedInput = identifier.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
@@ -33,7 +45,7 @@ export async function POST(request: NextRequest) {
 
     let authenticatedUser: any = null;
     let matchedCompany: CompanyTenant | null = null;
-    let isDeactivated = false;
+    let foundInactiveUser = false;
 
     for (const company of companiesToSearch) {
       try {
@@ -59,7 +71,7 @@ export async function POST(request: NextRequest) {
           const isMatch = await comparePassword(password, user.passwordHash);
           if (isMatch) {
             if (!user.isActive) {
-              isDeactivated = true;
+              foundInactiveUser = true;
               break;
             }
             authenticatedUser = user;
@@ -69,23 +81,24 @@ export async function POST(request: NextRequest) {
         }
       } catch (tenantErr: any) {
         console.warn(`[Login] Lookup failed for tenant ${company}:`, tenantErr?.message || tenantErr);
-        // Continue to check the next company if dual lookup
       }
     }
 
-    if (isDeactivated) {
+    // Timing-attack mitigation: run dummy compare if no user matched
+    if (!authenticatedUser && !foundInactiveUser) {
+      await comparePassword(password, DUMMY_HASH);
+    }
+
+    // Generic error message: never reveal whether account exists or is deactivated (VULN-02 fix)
+    if (!authenticatedUser || !matchedCompany || foundInactiveUser) {
       return NextResponse.json(
-        { error: "Your account has been deactivated. Please contact administration." },
-        { status: 403 }
+        { error: "Invalid username, employee ID, or password." },
+        { status: 401 }
       );
     }
 
-    if (!authenticatedUser || !matchedCompany) {
-      return NextResponse.json({ error: "Invalid credentials." }, { status: 401 });
-    }
-
     // Update lastLogin cleanly using updateOne to prevent schema validation side effects on populated objects
-    const { User } = await getTenantModels(matchedCompany);
+    const { User, AuditLog } = await getTenantModels(matchedCompany);
     await User.updateOne({ _id: authenticatedUser._id }, { $set: { lastLogin: new Date() } });
 
     const empObj = authenticatedUser.employee as any;
@@ -97,6 +110,7 @@ export async function POST(request: NextRequest) {
       name: authenticatedUser.name,
       email: authenticatedUser.identifier,
       company: matchedCompany,
+      tokenVersion: authenticatedUser.tokenVersion || 0,
     };
 
     const token = await signSessionToken(sessionPayload);

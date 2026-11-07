@@ -32,7 +32,11 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
-    const { models } = await requireTenantUser(request);
+    const { user, models } = await requireTenantUser(request);
+
+    if (!params.id || !/^[0-9a-fA-F]{24}$/.test(params.id)) {
+      return NextResponse.json({ error: "Invalid leave ID format" }, { status: 400 });
+    }
 
     const leave = await models.LeaveRequest.findById(params.id)
       .populate("employee", "employeeCode fullName designation department avatarUrl")
@@ -41,6 +45,17 @@ export async function GET(
 
     if (!leave) {
       return NextResponse.json({ error: "Leave request not found" }, { status: 404 });
+    }
+
+    // IDOR Protection: Non-admin employees can only view their own leave requests
+    if (user.role !== "ADMIN") {
+      const leaveEmpId = (leave.employee as any)?._id?.toString() || (leave.employee as any)?.toString();
+      if (!user.employeeId || leaveEmpId !== user.employeeId.toString()) {
+        return NextResponse.json(
+          { error: "Forbidden: You cannot access or view leave records of another employee." },
+          { status: 403 }
+        );
+      }
     }
 
     // Check attendance records for the dates in this leave request
