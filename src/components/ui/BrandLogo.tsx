@@ -7,11 +7,20 @@ interface BrandLogoProps {
   href?: string;
   company?: "plynest" | "hytek";
   name?: string;
+  variant?: "dark" | "light";
 }
 
-export function BrandLogo({ collapsed = false, className = "", href, company = "plynest", name }: BrandLogoProps) {
+export function BrandLogo({
+  collapsed = false,
+  className = "",
+  href,
+  company = "plynest",
+  name,
+  variant = "dark",
+}: BrandLogoProps) {
   const brandName = name || (company === "hytek" ? "Prinson Hytek" : "Prinson Plynest");
   const targetHref = href || (company === "hytek" ? "/hytek/admin/dashboard" : "/admin/dashboard");
+  const isLight = variant === "light";
 
   return (
     <Link href={targetHref} className={`flex items-center gap-3 group select-none ${className}`}>
@@ -48,13 +57,21 @@ export function BrandLogo({ collapsed = false, className = "", href, company = "
       </div>
 
       {!collapsed && (
-        <div className="flex flex-col">
-          <div className="flex items-center gap-1.5">
-            <span className="font-extrabold text-sm tracking-wider uppercase text-white font-sans group-hover:text-zinc-200 transition-colors">
-              {brandName}
-            </span>
-          </div>
-          <span className="text-[10px] tracking-widest uppercase font-medium text-zinc-400">
+        <div className="flex flex-col justify-center min-w-0">
+          <span
+            className={`font-extrabold text-sm tracking-wider uppercase font-sans leading-none transition-colors ${
+              isLight
+                ? "text-black group-hover:text-zinc-700"
+                : "text-white group-hover:text-zinc-200"
+            }`}
+          >
+            {brandName}
+          </span>
+          <span
+            className={`text-[10px] tracking-widest uppercase font-semibold leading-none mt-1 ${
+              isLight ? "text-zinc-500" : "text-zinc-400"
+            }`}
+          >
             Attendance Portal
           </span>
         </div>

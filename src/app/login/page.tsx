@@ -49,7 +49,7 @@ export default function LoginPage() {
     <div className="min-h-screen bg-zinc-50 flex flex-col justify-between selection:bg-black selection:text-white">
       {/* Top Navbar */}
       <nav className="h-16 px-6 md:px-12 flex items-center justify-between border-b border-zinc-200 bg-white/80 backdrop-blur-md">
-        <BrandLogo href="/login" />
+        <BrandLogo href="/login" variant="light" />
         <div className="flex items-center gap-2 text-xs font-semibold text-zinc-600 bg-zinc-100 px-3 py-1.5 rounded-full border border-zinc-200">
           <Building2 className="w-3.5 h-3.5 text-black" />
           <span>Unified Attendance Portal</span>
