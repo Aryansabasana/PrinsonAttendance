@@ -47,6 +47,41 @@ async function seed() {
   await mongoose.connect(MONGODB_URI);
   console.log("Connected to MongoDB successfully.");
 
+  // Safety check: Create backup before any deletion
+  const existingEmployeeCount = await Employee.countDocuments();
+  const existingUserCount = await User.countDocuments();
+
+  if (existingEmployeeCount > 0 || existingUserCount > 0) {
+    const isForce = process.argv.includes("--force");
+    const backupDir = path.resolve(__dirname, "../backups");
+    if (!fs.existsSync(backupDir)) {
+      fs.mkdirSync(backupDir, { recursive: true });
+    }
+    const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+    const backupFile = path.join(backupDir, `backup-plynest-${timestamp}.json`);
+
+    const [users, employees, attendances, leaves, auditlogs, settings] = await Promise.all([
+      User.find({}).lean(),
+      Employee.find({}).lean(),
+      Attendance.find({}).lean(),
+      LeaveRequest.find({}).lean(),
+      AuditLog.find({}).lean(),
+      Setting.find({}).lean(),
+    ]);
+
+    fs.writeFileSync(
+      backupFile,
+      JSON.stringify({ timestamp, users, employees, attendances, leaves, auditlogs, settings }, null, 2)
+    );
+    console.log(`[SAFETY BACKUP] Dumped existing data to ${backupFile}`);
+
+    if (!isForce) {
+      console.warn("SAFETY ABORT: Existing data detected. Pass '--force' to explicitly overwrite collections.");
+      await mongoose.disconnect();
+      return;
+    }
+  }
+
   // Clear existing collections
   await Promise.all([
     User.deleteMany({}),

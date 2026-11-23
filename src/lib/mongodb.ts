@@ -7,6 +7,7 @@ import { LeaveRequestSchema, ILeaveRequest } from "@/models/LeaveRequest";
 import { SettingSchema, ISetting } from "@/models/Setting";
 import { AuditLogSchema, IAuditLog } from "@/models/AuditLog";
 import { RateLimitSchema, IRateLimit } from "@/models/RateLimit";
+import { HolidaySchema, IHoliday } from "@/models/Holiday";
 
 // Fix querySrv ECONNREFUSED on Windows / local ISPs for MongoDB Atlas SRV records
 export function ensureDnsServers() {
@@ -173,6 +174,7 @@ export interface TenantModels {
   Setting: Model<ISetting>;
   AuditLog: Model<IAuditLog>;
   RateLimit: Model<IRateLimit>;
+  Holiday: Model<IHoliday>;
 }
 
 /**
@@ -190,5 +192,6 @@ export async function getTenantModels(company: CompanyTenant = "plynest"): Promi
     Setting: conn.models.Setting || conn.model<ISetting>("Setting", SettingSchema),
     AuditLog: conn.models.AuditLog || conn.model<IAuditLog>("AuditLog", AuditLogSchema),
     RateLimit: conn.models.RateLimit || conn.model<IRateLimit>("RateLimit", RateLimitSchema),
+    Holiday: conn.models.Holiday || conn.model<IHoliday>("Holiday", HolidaySchema),
   };
 }

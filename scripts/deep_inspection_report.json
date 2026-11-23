@@ -1,0 +1,1286 @@
+{
+  "databases": {
+    "JwtToken": {
+      "sizeOnDisk": 110592,
+      "collections": {
+        "users": {
+          "count": 1,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 1,
+          "oldestDocDate": "2026-03-28T06:41:06.000Z",
+          "newestDocDate": "2026-03-28T06:41:06.000Z"
+        }
+      }
+    },
+    "SkillForge": {
+      "sizeOnDisk": 8192,
+      "collections": {
+        "analyses": {
+          "count": 0,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": null,
+          "newestDocDate": null
+        }
+      }
+    },
+    "agrivision_ai": {
+      "sizeOnDisk": 331776,
+      "collections": {
+        "users": {
+          "count": 1,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 1,
+          "oldestDocDate": "2026-03-12T17:18:09.000Z",
+          "newestDocDate": "2026-03-12T17:18:09.000Z"
+        },
+        "chat_history": {
+          "count": 2,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 2,
+          "oldestDocDate": "2026-03-12T17:28:09.000Z",
+          "newestDocDate": "2026-03-12T17:32:15.000Z"
+        },
+        "disease_reports": {
+          "count": 1,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 1,
+          "oldestDocDate": "2026-03-12T17:31:43.000Z",
+          "newestDocDate": "2026-03-12T17:31:43.000Z"
+        },
+        "crop_recommendations": {
+          "count": 1,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 1,
+          "oldestDocDate": "2026-03-12T17:32:05.000Z",
+          "newestDocDate": "2026-03-12T17:32:05.000Z"
+        }
+      }
+    },
+    "goEpicDB": {
+      "sizeOnDisk": 16154624,
+      "collections": {
+        "users": {
+          "count": 4,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 4,
+          "oldestDocDate": "2026-06-17T15:20:53.000Z",
+          "newestDocDate": "2026-06-17T16:51:13.000Z"
+        },
+        "dataset": {
+          "count": 3202,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": "sampled",
+          "oldestDocDate": "2026-06-17T15:14:16.000Z",
+          "newestDocDate": "2026-06-17T15:14:16.000Z"
+        },
+        "topics": {
+          "count": 0,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": null,
+          "newestDocDate": null
+        },
+        "datasets": {
+          "count": 0,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": null,
+          "newestDocDate": null
+        }
+      }
+    },
+    "hytek_attendance": {
+      "sizeOnDisk": 1097728,
+      "collections": {
+        "settings": {
+          "count": 1,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 1,
+          "oldestDocDate": "2026-11-22T13:18:56.000Z",
+          "newestDocDate": "2026-11-22T13:18:56.000Z"
+        },
+        "attendances": {
+          "count": 30,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": true,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 30,
+          "oldestDocDate": "2026-11-22T13:18:57.000Z",
+          "newestDocDate": "2026-11-22T13:19:00.000Z"
+        },
+        "users": {
+          "count": 6,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": true,
+          "docsBeforeCutoff": 6,
+          "oldestDocDate": "2026-11-22T13:18:57.000Z",
+          "newestDocDate": "2026-11-22T13:18:57.000Z"
+        },
+        "ratelimits": {
+          "count": 0,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": null,
+          "newestDocDate": null
+        },
+        "leaverequests": {
+          "count": 1,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 1,
+          "oldestDocDate": "2026-11-22T13:19:00.000Z",
+          "newestDocDate": "2026-11-22T13:19:00.000Z"
+        },
+        "auditlogs": {
+          "count": 1,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 1,
+          "oldestDocDate": "2026-11-22T13:19:00.000Z",
+          "newestDocDate": "2026-11-22T13:19:00.000Z"
+        },
+        "employees": {
+          "count": 5,
+          "hasEmployeeFields": true,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 5,
+          "oldestDocDate": "2026-11-22T13:18:57.000Z",
+          "newestDocDate": "2026-11-22T13:18:57.000Z"
+        },
+        "holidays": {
+          "count": 0,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": null,
+          "newestDocDate": null
+        }
+      }
+    },
+    "plynest_attendance": {
+      "sizeOnDisk": 1286144,
+      "collections": {
+        "settings": {
+          "count": 1,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": "2026-11-22T13:25:12.000Z",
+          "newestDocDate": "2026-11-22T13:25:12.000Z"
+        },
+        "holidays": {
+          "count": 0,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": null,
+          "newestDocDate": null
+        },
+        "auditlogs": {
+          "count": 8,
+          "hasEmployeeFields": true,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": "2026-11-22T13:25:14.000Z",
+          "newestDocDate": "2026-11-22T13:44:33.000Z"
+        },
+        "leaverequests": {
+          "count": 5,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": "2026-11-22T13:25:14.000Z",
+          "newestDocDate": "2026-11-22T13:25:14.000Z"
+        },
+        "ratelimits": {
+          "count": 0,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": null,
+          "newestDocDate": null
+        },
+        "attendances": {
+          "count": 96,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": true,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": "2026-11-22T13:25:13.000Z",
+          "newestDocDate": "2026-11-22T13:25:13.000Z"
+        },
+        "users": {
+          "count": 9,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": true,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": "2026-11-22T13:25:12.000Z",
+          "newestDocDate": "2026-11-22T13:25:13.000Z"
+        },
+        "employees": {
+          "count": 8,
+          "hasEmployeeFields": true,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": "2026-11-22T13:25:12.000Z",
+          "newestDocDate": "2026-11-22T13:25:13.000Z"
+        }
+      }
+    },
+    "sample_mflix": {
+      "sizeOnDisk": 120864768,
+      "collections": {
+        "comments": {
+          "count": 41079,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": "sampled",
+          "oldestDocDate": "2018-02-26T15:27:32.000Z",
+          "newestDocDate": "2018-02-26T15:27:32.000Z"
+        },
+        "theaters": {
+          "count": 1564,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": "sampled",
+          "oldestDocDate": "2017-08-28T19:44:06.000Z",
+          "newestDocDate": "2017-08-28T19:44:06.000Z"
+        },
+        "users": {
+          "count": 185,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 185,
+          "oldestDocDate": "2017-09-13T21:05:56.000Z",
+          "newestDocDate": "2019-10-24T15:30:06.000Z"
+        },
+        "movies": {
+          "count": 21349,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": "sampled",
+          "oldestDocDate": "2016-05-16T18:38:08.000Z",
+          "newestDocDate": "2016-05-16T18:38:09.000Z"
+        },
+        "sessions": {
+          "count": 1,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 1,
+          "oldestDocDate": "2018-03-01T13:02:01.000Z",
+          "newestDocDate": "2018-03-01T13:02:01.000Z"
+        },
+        "embedded_movies": {
+          "count": 3483,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": "sampled",
+          "oldestDocDate": "2016-05-16T18:38:09.000Z",
+          "newestDocDate": "2016-05-16T18:38:10.000Z"
+        }
+      }
+    },
+    "shipguard": {
+      "sizeOnDisk": 147456,
+      "collections": {
+        "users": {
+          "count": 10,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 10,
+          "oldestDocDate": "2026-04-26T10:02:18.000Z",
+          "newestDocDate": "2026-09-09T16:39:16.000Z"
+        }
+      }
+    },
+    "studentDB": {
+      "sizeOnDisk": 110592,
+      "collections": {
+        "users": {
+          "count": 5,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 5,
+          "oldestDocDate": "2026-03-07T06:14:46.000Z",
+          "newestDocDate": "2026-03-07T06:18:03.000Z"
+        }
+      }
+    },
+    "test": {
+      "sizeOnDisk": 110592,
+      "collections": {
+        "users": {
+          "count": 2,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 2,
+          "oldestDocDate": "2026-03-06T05:10:49.000Z",
+          "newestDocDate": "2026-03-07T05:08:50.000Z"
+        }
+      }
+    },
+    "ventureHack": {
+      "sizeOnDisk": 29470720,
+      "collections": {
+        "notificationtokens": {
+          "count": 21,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 21,
+          "oldestDocDate": "2026-04-02T20:53:36.000Z",
+          "newestDocDate": "2026-11-03T06:05:35.000Z"
+        },
+        "fields": {
+          "count": 34,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 34,
+          "oldestDocDate": "2026-09-15T11:55:31.000Z",
+          "newestDocDate": "2026-11-04T13:07:50.000Z"
+        },
+        "icar_varieties": {
+          "count": 654,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": "sampled",
+          "oldestDocDate": "2026-09-24T20:06:26.000Z",
+          "newestDocDate": "2026-09-24T20:06:26.000Z"
+        },
+        "crops": {
+          "count": 28,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 28,
+          "oldestDocDate": "2026-09-15T11:55:32.000Z",
+          "newestDocDate": "2026-11-04T13:07:51.000Z"
+        },
+        "risk_events": {
+          "count": 25,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 25,
+          "oldestDocDate": "2026-09-25T10:28:51.000Z",
+          "newestDocDate": "2026-11-04T13:10:12.000Z"
+        },
+        "agri_ipm_rules": {
+          "count": 30,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 30,
+          "oldestDocDate": "2026-09-25T10:25:18.000Z",
+          "newestDocDate": "2026-09-25T18:37:10.000Z"
+        },
+        "verified_training_samples": {
+          "count": 4,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 4,
+          "oldestDocDate": "2026-09-25T13:35:00.000Z",
+          "newestDocDate": "2026-09-25T15:21:33.000Z"
+        },
+        "expert_audit_logs": {
+          "count": 26,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 26,
+          "oldestDocDate": "2026-09-25T13:34:22.000Z",
+          "newestDocDate": "2026-09-25T15:21:32.000Z"
+        },
+        "expert_tickets": {
+          "count": 2,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 2,
+          "oldestDocDate": "2026-09-25T13:34:23.000Z",
+          "newestDocDate": "2026-09-25T13:34:23.000Z"
+        },
+        "crop_growth_stages": {
+          "count": 19,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 19,
+          "oldestDocDate": "2026-09-24T20:06:27.000Z",
+          "newestDocDate": "2026-09-24T20:06:27.000Z"
+        },
+        "marketprices": {
+          "count": 25,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 25,
+          "oldestDocDate": "2026-03-14T08:42:54.000Z",
+          "newestDocDate": "2026-09-25T11:29:32.000Z"
+        },
+        "expert_profiles": {
+          "count": 5,
+          "hasEmployeeFields": true,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 5,
+          "oldestDocDate": "2026-09-25T13:30:24.000Z",
+          "newestDocDate": "2026-09-25T13:34:22.000Z"
+        },
+        "pushlogs": {
+          "count": 0,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": null,
+          "newestDocDate": null
+        },
+        "farm_zones": {
+          "count": 23,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 23,
+          "oldestDocDate": "2026-09-24T20:31:40.000Z",
+          "newestDocDate": "2026-10-03T05:26:34.000Z"
+        },
+        "cropdiseases": {
+          "count": 0,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": null,
+          "newestDocDate": null
+        },
+        "agri_advisories": {
+          "count": 23,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 23,
+          "oldestDocDate": "2026-09-25T10:28:51.000Z",
+          "newestDocDate": "2026-09-25T20:52:10.000Z"
+        },
+        "farmcalculations": {
+          "count": 0,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": null,
+          "newestDocDate": null
+        },
+        "farmercrops": {
+          "count": 8,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 8,
+          "oldestDocDate": "2026-04-03T01:57:23.000Z",
+          "newestDocDate": "2026-09-25T18:10:10.000Z"
+        },
+        "agri_institution_references": {
+          "count": 84,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 84,
+          "oldestDocDate": "2026-09-25T13:29:12.000Z",
+          "newestDocDate": "2026-09-25T13:29:17.000Z"
+        },
+        "cropmasters": {
+          "count": 11,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 11,
+          "oldestDocDate": "2026-09-13T16:18:18.000Z",
+          "newestDocDate": "2026-09-13T16:18:18.000Z"
+        },
+        "expert_reviews": {
+          "count": 4,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 4,
+          "oldestDocDate": "2026-09-25T13:35:00.000Z",
+          "newestDocDate": "2026-09-25T15:21:33.000Z"
+        },
+        "agriproducts": {
+          "count": 0,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": null,
+          "newestDocDate": null
+        },
+        "yieldpredictions": {
+          "count": 260,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 260,
+          "oldestDocDate": "2026-03-14T16:42:21.000Z",
+          "newestDocDate": "2026-09-26T18:36:30.000Z"
+        },
+        "agri_notifications": {
+          "count": 3,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 3,
+          "oldestDocDate": "2026-09-25T16:28:05.000Z",
+          "newestDocDate": "2026-09-25T20:52:11.000Z"
+        },
+        "usermemberships": {
+          "count": 1,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 1,
+          "oldestDocDate": "2026-03-15T02:16:49.000Z",
+          "newestDocDate": "2026-03-15T02:16:49.000Z"
+        },
+        "gdd_logs": {
+          "count": 0,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": null,
+          "newestDocDate": null
+        },
+        "pesticidedatabases": {
+          "count": 0,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": null,
+          "newestDocDate": null
+        },
+        "predictionhistories": {
+          "count": 121,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 121,
+          "oldestDocDate": "2026-03-14T08:42:53.000Z",
+          "newestDocDate": "2026-09-26T05:59:07.000Z"
+        },
+        "scanhistories": {
+          "count": 0,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": null,
+          "newestDocDate": null
+        },
+        "agri_source_registries": {
+          "count": 16,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 16,
+          "oldestDocDate": "2026-09-25T12:25:24.000Z",
+          "newestDocDate": "2026-09-25T12:25:25.000Z"
+        },
+        "cropadvisories": {
+          "count": 11,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 11,
+          "oldestDocDate": "2026-03-15T03:10:57.000Z",
+          "newestDocDate": "2026-03-15T03:10:57.000Z"
+        },
+        "farmer_interventions": {
+          "count": 3,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 3,
+          "oldestDocDate": "2026-09-25T16:38:06.000Z",
+          "newestDocDate": "2026-09-25T16:38:51.000Z"
+        },
+        "icar_crops": {
+          "count": 46,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 46,
+          "oldestDocDate": "2026-09-24T20:06:26.000Z",
+          "newestDocDate": "2026-09-24T20:06:26.000Z"
+        },
+        "smslogs": {
+          "count": 8,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 8,
+          "oldestDocDate": "2026-04-02T20:54:00.000Z",
+          "newestDocDate": "2026-05-10T18:19:22.000Z"
+        },
+        "users": {
+          "count": 44,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 44,
+          "oldestDocDate": "2026-04-03T01:56:02.000Z",
+          "newestDocDate": "2026-11-03T06:05:29.000Z"
+        },
+        "pest_disease_references": {
+          "count": 1503,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": "sampled",
+          "oldestDocDate": "2026-09-24T20:06:28.000Z",
+          "newestDocDate": "2026-09-24T20:06:28.000Z"
+        },
+        "scan_sessions": {
+          "count": 10,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 10,
+          "oldestDocDate": "2026-09-24T20:31:41.000Z",
+          "newestDocDate": "2026-09-25T20:05:24.000Z"
+        },
+        "farmerposts": {
+          "count": 35,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 35,
+          "oldestDocDate": "2026-09-12T08:03:22.000Z",
+          "newestDocDate": "2026-09-25T12:33:58.000Z"
+        },
+        "expenses": {
+          "count": 2,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 2,
+          "oldestDocDate": "2026-03-15T05:11:07.000Z",
+          "newestDocDate": "2026-04-02T09:48:38.000Z"
+        },
+        "weather_observations": {
+          "count": 0,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": null,
+          "newestDocDate": null
+        },
+        "crop_disease_scans": {
+          "count": 36,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 36,
+          "oldestDocDate": "2026-09-24T20:31:41.000Z",
+          "newestDocDate": "2026-09-25T20:05:40.000Z"
+        },
+        "gdd_parameter_sets": {
+          "count": 160,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 160,
+          "oldestDocDate": "2026-09-24T20:05:16.000Z",
+          "newestDocDate": "2026-09-24T20:05:16.000Z"
+        },
+        "weather_condition_references": {
+          "count": 227,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 227,
+          "oldestDocDate": "2026-09-24T20:06:29.000Z",
+          "newestDocDate": "2026-09-24T20:06:29.000Z"
+        },
+        "communitycomments": {
+          "count": 14,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 14,
+          "oldestDocDate": "2026-09-12T08:03:22.000Z",
+          "newestDocDate": "2026-09-30T14:41:06.000Z"
+        }
+      }
+    },
+    "yera": {
+      "sizeOnDisk": 933888,
+      "collections": {
+        "users": {
+          "count": 1,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 1,
+          "oldestDocDate": "2026-09-10T16:07:58.000Z",
+          "newestDocDate": "2026-09-10T16:07:58.000Z"
+        },
+        "inventories": {
+          "count": 8,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 8,
+          "oldestDocDate": "2026-09-10T16:07:59.000Z",
+          "newestDocDate": "2026-09-10T16:19:52.000Z"
+        },
+        "categories": {
+          "count": 20,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 20,
+          "oldestDocDate": "2026-08-23T13:22:06.000Z",
+          "newestDocDate": "2026-08-23T13:22:07.000Z"
+        },
+        "products": {
+          "count": 0,
+          "hasEmployeeFields": false,
+          "hasAttendanceFields": false,
+          "hasUserFields": false,
+          "docsBeforeCutoff": 0,
+          "oldestDocDate": null,
+          "newestDocDate": null
+        }
+      }
+    }
+  },
+  "hytekInspection": {},
+  "preCutoffAttendanceRecords": [
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc1660251ac0cf534c0",
+        "created": "2026-11-22T13:18:57.000Z",
+        "dateStr": "2026-11-16",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc1660251ac0cf534c2",
+        "created": "2026-11-22T13:18:57.000Z",
+        "dateStr": "2026-11-16",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc2660251ac0cf534c4",
+        "created": "2026-11-22T13:18:58.000Z",
+        "dateStr": "2026-11-16",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc2660251ac0cf534c6",
+        "created": "2026-11-22T13:18:58.000Z",
+        "dateStr": "2026-11-16",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc2660251ac0cf534c8",
+        "created": "2026-11-22T13:18:58.000Z",
+        "dateStr": "2026-11-16",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc2660251ac0cf534ca",
+        "created": "2026-11-22T13:18:58.000Z",
+        "dateStr": "2026-11-17",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc2660251ac0cf534cc",
+        "created": "2026-11-22T13:18:58.000Z",
+        "dateStr": "2026-11-17",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc2660251ac0cf534ce",
+        "created": "2026-11-22T13:18:58.000Z",
+        "dateStr": "2026-11-17",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc2660251ac0cf534d0",
+        "created": "2026-11-22T13:18:58.000Z",
+        "dateStr": "2026-11-17",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc2660251ac0cf534d2",
+        "created": "2026-11-22T13:18:58.000Z",
+        "dateStr": "2026-11-17",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc2660251ac0cf534d4",
+        "created": "2026-11-22T13:18:58.000Z",
+        "dateStr": "2026-11-18",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc2660251ac0cf534d6",
+        "created": "2026-11-22T13:18:58.000Z",
+        "dateStr": "2026-11-18",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc2660251ac0cf534d8",
+        "created": "2026-11-22T13:18:58.000Z",
+        "dateStr": "2026-11-18",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc2660251ac0cf534da",
+        "created": "2026-11-22T13:18:58.000Z",
+        "dateStr": "2026-11-18",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc2660251ac0cf534dc",
+        "created": "2026-11-22T13:18:58.000Z",
+        "dateStr": "2026-11-18",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc2660251ac0cf534de",
+        "created": "2026-11-22T13:18:58.000Z",
+        "dateStr": "2026-11-19",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc3660251ac0cf534e0",
+        "created": "2026-11-22T13:18:59.000Z",
+        "dateStr": "2026-11-19",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc3660251ac0cf534e2",
+        "created": "2026-11-22T13:18:59.000Z",
+        "dateStr": "2026-11-19",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc3660251ac0cf534e4",
+        "created": "2026-11-22T13:18:59.000Z",
+        "dateStr": "2026-11-19",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc3660251ac0cf534e6",
+        "created": "2026-11-22T13:18:59.000Z",
+        "dateStr": "2026-11-19",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc3660251ac0cf534e8",
+        "created": "2026-11-22T13:18:59.000Z",
+        "dateStr": "2026-11-20",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc3660251ac0cf534ea",
+        "created": "2026-11-22T13:18:59.000Z",
+        "dateStr": "2026-11-20",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc3660251ac0cf534ec",
+        "created": "2026-11-22T13:18:59.000Z",
+        "dateStr": "2026-11-20",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc3660251ac0cf534ee",
+        "created": "2026-11-22T13:18:59.000Z",
+        "dateStr": "2026-11-20",
+        "status": "ABSENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc3660251ac0cf534f0",
+        "created": "2026-11-22T13:18:59.000Z",
+        "dateStr": "2026-11-20",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc3660251ac0cf534f2",
+        "created": "2026-11-22T13:18:59.000Z",
+        "dateStr": "2026-11-21",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc3660251ac0cf534f4",
+        "created": "2026-11-22T13:18:59.000Z",
+        "dateStr": "2026-11-21",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc3660251ac0cf534f6",
+        "created": "2026-11-22T13:18:59.000Z",
+        "dateStr": "2026-11-21",
+        "status": "HALF_DAY"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc3660251ac0cf534f8",
+        "created": "2026-11-22T13:18:59.000Z",
+        "dateStr": "2026-11-21",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "attendances",
+      "doc": {
+        "_id": "6b02ebc4660251ac0cf534fa",
+        "created": "2026-11-22T13:19:00.000Z",
+        "dateStr": "2026-11-21",
+        "status": "PRESENT"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "users",
+      "doc": {
+        "_id": "6b02ebc1660251ac0cf534a8",
+        "created": "2026-11-22T13:18:57.000Z",
+        "identifier": "admin@hytek.com",
+        "role": "ADMIN"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "users",
+      "doc": {
+        "_id": "6b02ebc1660251ac0cf534ac",
+        "created": "2026-11-22T13:18:57.000Z",
+        "identifier": "arun@hytek.com",
+        "role": "EMPLOYEE"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "users",
+      "doc": {
+        "_id": "6b02ebc1660251ac0cf534b1",
+        "created": "2026-11-22T13:18:57.000Z",
+        "identifier": "priya@hytek.com",
+        "role": "EMPLOYEE"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "users",
+      "doc": {
+        "_id": "6b02ebc1660251ac0cf534b6",
+        "created": "2026-11-22T13:18:57.000Z",
+        "identifier": "karthik@hytek.com",
+        "role": "EMPLOYEE"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "users",
+      "doc": {
+        "_id": "6b02ebc1660251ac0cf534ba",
+        "created": "2026-11-22T13:18:57.000Z",
+        "identifier": "deepa@hytek.com",
+        "role": "EMPLOYEE"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "users",
+      "doc": {
+        "_id": "6b02ebc1660251ac0cf534be",
+        "created": "2026-11-22T13:18:57.000Z",
+        "identifier": "siddharth@hytek.com",
+        "role": "EMPLOYEE"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "employees",
+      "doc": {
+        "_id": "6b02ebc1660251ac0cf534aa",
+        "created": "2026-11-22T13:18:57.000Z",
+        "employeeCode": "PH-101",
+        "fullName": "Arun Kumar",
+        "email": "arun@hytek.com"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "employees",
+      "doc": {
+        "_id": "6b02ebc1660251ac0cf534ae",
+        "created": "2026-11-22T13:18:57.000Z",
+        "employeeCode": "PH-102",
+        "fullName": "Priya Nair",
+        "email": "priya@hytek.com"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "employees",
+      "doc": {
+        "_id": "6b02ebc1660251ac0cf534b3",
+        "created": "2026-11-22T13:18:57.000Z",
+        "employeeCode": "PH-103",
+        "fullName": "Karthik Reddy",
+        "email": "karthik@hytek.com"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "employees",
+      "doc": {
+        "_id": "6b02ebc1660251ac0cf534b8",
+        "created": "2026-11-22T13:18:57.000Z",
+        "employeeCode": "PH-104",
+        "fullName": "Deepa Rao",
+        "email": "deepa@hytek.com"
+      }
+    },
+    {
+      "db": "hytek_attendance",
+      "collection": "employees",
+      "doc": {
+        "_id": "6b02ebc1660251ac0cf534bc",
+        "created": "2026-11-22T13:18:57.000Z",
+        "employeeCode": "PH-105",
+        "fullName": "Siddharth Joshi",
+        "email": "siddharth@hytek.com"
+      }
+    },
+    {
+      "db": "ventureHack",
+      "collection": "expert_profiles",
+      "doc": {
+        "_id": "6ab67770c31eedaa58f7934f",
+        "created": "2026-09-25T13:30:24.000Z",
+        "fullName": "Dr. Ramesh Patel"
+      }
+    },
+    {
+      "db": "ventureHack",
+      "collection": "expert_profiles",
+      "doc": {
+        "_id": "6ab67770c31eedaa58f79350",
+        "created": "2026-09-25T13:30:24.000Z",
+        "fullName": "Dr. Sneha Desai"
+      }
+    },
+    {
+      "db": "ventureHack",
+      "collection": "expert_profiles",
+      "doc": {
+        "_id": "6ab67770c31eedaa58f79351",
+        "created": "2026-09-25T13:30:24.000Z",
+        "fullName": "Dr. Mukesh Sehgal"
+      }
+    },
+    {
+      "db": "ventureHack",
+      "collection": "expert_profiles",
+      "doc": {
+        "_id": "6ab6785e8ecda082dc047023",
+        "created": "2026-09-25T13:34:22.000Z",
+        "fullName": "Dr. Ananya Sharma 261122"
+      }
+    },
+    {
+      "db": "ventureHack",
+      "collection": "expert_profiles",
+      "doc": {
+        "_id": "6ab6785e8ecda082dc04703c",
+        "created": "2026-09-25T13:34:22.000Z",
+        "fullName": "Dr. Vikram Dave 261122"
+      }
+    }
+  ],
+  "localFiles": [
+    {
+      "path": "backups\\my-employees.example.json",
+      "size": 271,
+      "mtime": "2026-11-22T14:33:33.589Z"
+    },
+    {
+      "path": "scripts\\oplog_dump.json",
+      "size": 83639,
+      "mtime": "2026-11-22T13:58:01.193Z"
+    }
+  ]
+}

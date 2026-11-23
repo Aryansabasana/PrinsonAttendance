@@ -17,6 +17,8 @@ import {
   CheckSquare,
   Square,
   Info,
+  CalendarOff,
+  X,
 } from "lucide-react";
 import { formatDateStr, formatReadableDate, ATTENDANCE_STATUS_META, AttendanceStatus } from "@/lib/utils";
 import { CompanyTenant } from "@/lib/mongodb";
@@ -62,6 +64,13 @@ function DailyRegisterContent({ company = "plynest" }: DailyRegisterViewProps) {
   const [register, setRegister] = useState<RowItem[]>([]);
   const [summary, setSummary] = useState<any>(null);
 
+  // Holiday state
+  const [isHoliday, setIsHoliday] = useState(false);
+  const [holidayInfo, setHolidayInfo] = useState<{ name: string; declaredByName?: string } | null>(null);
+  const [holidayModalOpen, setHolidayModalOpen] = useState(false);
+  const [holidayNameInput, setHolidayNameInput] = useState("");
+  const [holidayActionLoading, setHolidayActionLoading] = useState(false);
+
   // Filters & search
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("ALL");
@@ -99,6 +108,9 @@ function DailyRegisterContent({ company = "plynest" }: DailyRegisterViewProps) {
       });
       const data = await res.json();
       if (res.ok) {
+        setIsHoliday(Boolean(data.isHoliday));
+        setHolidayInfo(data.holiday || null);
+
         const rows: RowItem[] = data.register.map((r: any) => ({
           ...r,
           isDirty: false,
@@ -115,6 +127,73 @@ function DailyRegisterContent({ company = "plynest" }: DailyRegisterViewProps) {
       console.error("Failed to load daily attendance", err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const isSelectedDateSunday = () => {
+    const [y, m, d] = selectedDate.split("-").map(Number);
+    return new Date(y, m - 1, d).getDay() === 0;
+  };
+
+  const openDeclareHolidayModal = () => {
+    setHolidayNameInput(isSelectedDateSunday() ? "Sunday Off" : "Showroom Holiday");
+    setHolidayModalOpen(true);
+  };
+
+  const handleDeclareHoliday = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    setHolidayActionLoading(true);
+    try {
+      const res = await fetch(getTenantApiUrl("/api/attendance/holiday", company), {
+        method: "POST",
+        headers: {
+          ...getTenantApiHeaders(company),
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          dateStr: selectedDate,
+          name: holidayNameInput.trim() || (isSelectedDateSunday() ? "Sunday Off" : "Holiday"),
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        setNotification({ type: "error", message: data.error || "Failed to declare holiday." });
+      } else {
+        setNotification({ type: "success", message: data.message || "Holiday declared successfully." });
+        setHolidayModalOpen(false);
+        await fetchRegister(selectedDate);
+      }
+    } catch (err: any) {
+      setNotification({ type: "error", message: err.message || "Failed to declare holiday." });
+    } finally {
+      setHolidayActionLoading(false);
+    }
+  };
+
+  const handleCancelHoliday = async () => {
+    if (!confirm(`Are you sure you want to cancel the holiday on ${formatReadableDate(selectedDate)} and enable attendance marking?`)) {
+      return;
+    }
+
+    setHolidayActionLoading(true);
+    try {
+      const res = await fetch(getTenantApiUrl(`/api/attendance/holiday?dateStr=${selectedDate}`, company), {
+        method: "DELETE",
+        headers: getTenantApiHeaders(company),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        setNotification({ type: "error", message: data.error || "Failed to cancel holiday." });
+      } else {
+        setNotification({ type: "success", message: data.message || "Holiday cancelled successfully." });
+        await fetchRegister(selectedDate);
+      }
+    } catch (err: any) {
+      setNotification({ type: "error", message: err.message || "Failed to cancel holiday." });
+    } finally {
+      setHolidayActionLoading(false);
     }
   };
 
@@ -384,17 +463,71 @@ function DailyRegisterContent({ company = "plynest" }: DailyRegisterViewProps) {
             </button>
           </div>
 
-          {/* Quick Date Display */}
-          <div className="flex items-center gap-2 text-xs font-bold text-black">
-            <Calendar className="w-4 h-4 text-black" />
-            <span>{formatReadableDate(selectedDate)}</span>
-            {selectedDate === todayStr && (
-              <span className="px-2 py-0.5 rounded-full bg-zinc-100 text-zinc-800 text-[10px] uppercase font-bold border border-zinc-200">
-                Live Today
-              </span>
+          {/* Quick Date Display & Declare / Cancel Holiday */}
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 text-xs font-bold text-black">
+              <Calendar className="w-4 h-4 text-black" />
+              <span>{formatReadableDate(selectedDate)}</span>
+              {selectedDate === todayStr && (
+                <span className="px-2 py-0.5 rounded-full bg-zinc-100 text-zinc-800 text-[10px] uppercase font-bold border border-zinc-200">
+                  Live Today
+                </span>
+              )}
+            </div>
+
+            {isHoliday ? (
+              <button
+                type="button"
+                onClick={handleCancelHoliday}
+                disabled={holidayActionLoading}
+                className="px-3 py-1.5 rounded-xl text-xs font-bold bg-blue-50 text-blue-800 hover:bg-blue-100 border border-blue-200 transition-colors flex items-center gap-1.5"
+              >
+                <CalendarOff className="w-3.5 h-3.5" />
+                <span>Cancel Holiday</span>
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={openDeclareHolidayModal}
+                className="px-3 py-1.5 rounded-xl text-xs font-bold bg-zinc-900 text-white hover:bg-zinc-800 border border-zinc-800 transition-colors flex items-center gap-1.5 shadow-xs"
+              >
+                <CalendarOff className="w-3.5 h-3.5" />
+                <span>Declare Holiday</span>
+              </button>
             )}
           </div>
         </div>
+
+        {/* Declared Holiday Banner */}
+        {isHoliday && (
+          <div className="p-4 rounded-2xl bg-blue-50/80 border border-blue-200 text-blue-950 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-blue-100 border border-blue-300 flex items-center justify-center flex-shrink-0 text-blue-700">
+                <CalendarOff className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="font-bold text-sm text-blue-950">
+                    Declared Holiday: {holidayInfo?.name || "Official Holiday"}
+                  </span>
+                  <span className="px-2 py-0.5 rounded-full bg-blue-200/80 text-blue-800 text-[10px] uppercase font-extrabold tracking-wider border border-blue-300">
+                    Attendance Locked
+                  </span>
+                </div>
+                <p className="text-xs text-blue-800/90 mt-0.5">
+                  This date has been declared as a holiday by Admin. Present and Absent marking are disabled.
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={handleCancelHoliday}
+              disabled={holidayActionLoading}
+              className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-blue-900 bg-white hover:bg-blue-50 border border-blue-200 shadow-xs transition-colors flex items-center justify-center gap-1.5 flex-shrink-0"
+            >
+              {holidayActionLoading ? "Cancelling..." : "Cancel Holiday"}
+            </button>
+          </div>
+        )}
 
         {/* Notifications */}
         {notification && (
@@ -496,7 +629,12 @@ function DailyRegisterContent({ company = "plynest" }: DailyRegisterViewProps) {
 
             {/* Bulk Action Controls */}
             <div className="flex items-center gap-2 flex-wrap">
-              {selectedIds.size > 0 && (
+              {isHoliday ? (
+                <div className="flex items-center gap-1.5 bg-blue-50 px-3 py-1.5 rounded-xl border border-blue-200 text-blue-800 text-xs font-semibold">
+                  <CalendarOff className="w-3.5 h-3.5 text-blue-600" />
+                  <span>Attendance marking disabled (Holiday declared)</span>
+                </div>
+              ) : selectedIds.size > 0 ? (
                 <div className="flex items-center gap-1.5 bg-zinc-100 p-1 rounded-xl border border-zinc-200">
                   <span className="text-[11px] font-bold text-black px-2">
                     {selectedIds.size} selected:
@@ -520,7 +658,7 @@ function DailyRegisterContent({ company = "plynest" }: DailyRegisterViewProps) {
                     Mark Absent
                   </button>
                 </div>
-              )}
+              ) : null}
 
               {/* Status filter dropdown */}
               <select
@@ -546,8 +684,9 @@ function DailyRegisterContent({ company = "plynest" }: DailyRegisterViewProps) {
                   <th className="py-3 px-3 w-10 text-center">
                     <button
                       type="button"
+                      disabled={isHoliday}
                       onClick={toggleSelectAll}
-                      className="text-zinc-500 hover:text-black"
+                      className={`text-zinc-500 ${isHoliday ? "opacity-30 cursor-not-allowed" : "hover:text-black"}`}
                     >
                       {selectedIds.size === filteredRows.length && filteredRows.length > 0 ? (
                         <CheckSquare className="w-4 h-4 text-black" />
@@ -587,8 +726,9 @@ function DailyRegisterContent({ company = "plynest" }: DailyRegisterViewProps) {
                         <td className="py-3 px-3 text-center">
                           <button
                             type="button"
+                            disabled={isHoliday}
                             onClick={() => toggleSelectOne(row.employee._id)}
-                            className="text-zinc-400 hover:text-black"
+                            className={`text-zinc-400 ${isHoliday ? "opacity-30 cursor-not-allowed" : "hover:text-black"}`}
                           >
                             {isSelected ? (
                               <CheckSquare className="w-4 h-4 text-black" />
@@ -622,36 +762,45 @@ function DailyRegisterContent({ company = "plynest" }: DailyRegisterViewProps) {
 
                         {/* Quick 1-Click Status Chips */}
                         <td className="py-3 px-4">
-                          <div className="flex items-center gap-1.5">
-                            {(["PRESENT", "HALF_DAY", "ABSENT", "APPROVED_LEAVE"] as AttendanceStatus[]).map(
-                              (statusOpt) => {
-                                const isCurrent = row.status === statusOpt;
-                                const meta = ATTENDANCE_STATUS_META[statusOpt];
+                          {isHoliday ? (
+                            <div className="flex items-center gap-1.5 py-1">
+                              <span className="px-3 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold inline-flex items-center gap-1.5">
+                                <span className="w-2 h-2 rounded-full bg-blue-600" />
+                                Holiday ({holidayInfo?.name || "Official"})
+                              </span>
+                            </div>
+                          ) : (
+                            <div className="flex items-center gap-1.5">
+                              {(["PRESENT", "HALF_DAY", "ABSENT", "APPROVED_LEAVE"] as AttendanceStatus[]).map(
+                                (statusOpt) => {
+                                  const isCurrent = row.status === statusOpt;
+                                  const meta = ATTENDANCE_STATUS_META[statusOpt];
 
-                                return (
-                                  <button
-                                    key={statusOpt}
-                                    type="button"
-                                    onClick={() => setRowStatus(row.employee._id, statusOpt)}
-                                    className={`px-2.5 py-1 text-[11px] font-bold rounded-lg border transition-all ${
-                                      isCurrent
-                                        ? `${meta.chipClass} shadow-xs scale-105`
-                                        : "bg-zinc-100 text-zinc-700 border-zinc-200 hover:bg-zinc-200"
-                                    }`}
-                                  >
-                                    {statusOpt === "PRESENT"
-                                      ? "Present"
-                                      : statusOpt === "HALF_DAY"
-                                      ? "Half Day"
-                                      : statusOpt === "ABSENT"
-                                      ? "Absent"
-                                      : "Leave"}
-                                  </button>
-                                );
-                              }
-                            )}
-                          </div>
-                          {row.leaveInfo && (
+                                  return (
+                                    <button
+                                      key={statusOpt}
+                                      type="button"
+                                      onClick={() => setRowStatus(row.employee._id, statusOpt)}
+                                      className={`px-2.5 py-1 text-[11px] font-bold rounded-lg border transition-all ${
+                                        isCurrent
+                                          ? `${meta.chipClass} shadow-xs scale-105`
+                                          : "bg-zinc-100 text-zinc-700 border-zinc-200 hover:bg-zinc-200"
+                                      }`}
+                                    >
+                                      {statusOpt === "PRESENT"
+                                        ? "Present"
+                                        : statusOpt === "HALF_DAY"
+                                        ? "Half Day"
+                                        : statusOpt === "ABSENT"
+                                        ? "Absent"
+                                        : "Leave"}
+                                    </button>
+                                  );
+                                }
+                              )}
+                            </div>
+                          )}
+                          {!isHoliday && row.leaveInfo && (
                             <p className="text-[10px] text-zinc-600 font-medium mt-1 flex items-center gap-1">
                               <Info className="w-3 h-3" />
                               <span>
@@ -665,11 +814,14 @@ function DailyRegisterContent({ company = "plynest" }: DailyRegisterViewProps) {
                         <td className="py-3 px-3">
                           <input
                             type="time"
+                            disabled={isHoliday}
                             value={row.checkInTime}
                             onChange={(e) =>
                               setRowField(row.employee._id, "checkInTime", e.target.value)
                             }
-                            className="w-20 p-1 rounded-lg border border-zinc-200 text-[11px] font-mono text-zinc-900 focus:border-black outline-none bg-white"
+                            className={`w-20 p-1 rounded-lg border border-zinc-200 text-[11px] font-mono text-zinc-900 outline-none ${
+                              isHoliday ? "bg-zinc-100 text-zinc-400 cursor-not-allowed" : "bg-white focus:border-black"
+                            }`}
                           />
                         </td>
 
@@ -677,11 +829,14 @@ function DailyRegisterContent({ company = "plynest" }: DailyRegisterViewProps) {
                         <td className="py-3 px-3">
                           <input
                             type="time"
+                            disabled={isHoliday}
                             value={row.checkOutTime}
                             onChange={(e) =>
                               setRowField(row.employee._id, "checkOutTime", e.target.value)
                             }
-                            className="w-20 p-1 rounded-lg border border-zinc-200 text-[11px] font-mono text-zinc-900 focus:border-black outline-none bg-white"
+                            className={`w-20 p-1 rounded-lg border border-zinc-200 text-[11px] font-mono text-zinc-900 outline-none ${
+                              isHoliday ? "bg-zinc-100 text-zinc-400 cursor-not-allowed" : "bg-white focus:border-black"
+                            }`}
                           />
                         </td>
 
@@ -689,18 +844,25 @@ function DailyRegisterContent({ company = "plynest" }: DailyRegisterViewProps) {
                         <td className="py-3 px-3">
                           <input
                             type="text"
-                            value={row.remarks}
+                            disabled={isHoliday}
+                            value={isHoliday ? (holidayInfo?.name || "Declared Holiday") : row.remarks}
                             onChange={(e) =>
                               setRowField(row.employee._id, "remarks", e.target.value)
                             }
-                            placeholder="Optional note..."
-                            className="w-full p-1.5 rounded-lg border border-zinc-200 text-xs text-zinc-900 focus:border-black outline-none bg-white placeholder:text-zinc-400"
+                            placeholder={isHoliday ? "Declared Holiday" : "Optional note..."}
+                            className={`w-full p-1.5 rounded-lg border border-zinc-200 text-xs text-zinc-900 outline-none ${
+                              isHoliday ? "bg-zinc-100 text-zinc-400 cursor-not-allowed" : "bg-white focus:border-black placeholder:text-zinc-400"
+                            }`}
                           />
                         </td>
 
                         {/* State & Save */}
                         <td className="py-3 px-3 text-right">
-                          {row.isDirty ? (
+                          {isHoliday ? (
+                            <span className="text-[10px] font-bold text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-full">
+                              Holiday
+                            </span>
+                          ) : row.isDirty ? (
                             <span className="text-[10px] font-bold text-zinc-800 bg-zinc-200 px-2 py-0.5 rounded-full">
                               Modified
                             </span>
@@ -752,6 +914,68 @@ function DailyRegisterContent({ company = "plynest" }: DailyRegisterViewProps) {
         onConfirm={executeBulkStatus}
         onCancel={() => setBulkDialog({ ...bulkDialog, isOpen: false })}
       />
+
+      {/* Declare Official Holiday Modal */}
+      {holidayModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in">
+          <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border border-zinc-200 p-6 relative">
+            <button
+              type="button"
+              onClick={() => setHolidayModalOpen(false)}
+              className="absolute top-4 right-4 p-1.5 text-zinc-400 hover:text-black rounded-lg transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-700">
+                <CalendarOff className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-black">Declare Official Holiday</h3>
+                <p className="text-xs text-zinc-500">{formatReadableDate(selectedDate)}</p>
+              </div>
+            </div>
+
+            <form onSubmit={handleDeclareHoliday} className="space-y-4">
+              <div>
+                <label className="block text-xs font-bold text-zinc-700 mb-1">
+                  Holiday Name / Reason
+                </label>
+                <input
+                  type="text"
+                  value={holidayNameInput}
+                  onChange={(e) => setHolidayNameInput(e.target.value)}
+                  placeholder="e.g. Sunday Off, Diwali, Showroom Renovation..."
+                  required
+                  autoFocus
+                  className="w-full px-3 py-2 rounded-xl border border-zinc-200 text-xs font-semibold focus:border-black outline-none bg-zinc-50/50"
+                />
+                <p className="text-[11px] text-zinc-500 mt-1">
+                  Declaring a holiday disables Present/Absent/Half Day marking for this date.
+                </p>
+              </div>
+
+              <div className="flex items-center justify-end gap-2 pt-2 border-t border-zinc-100">
+                <button
+                  type="button"
+                  onClick={() => setHolidayModalOpen(false)}
+                  className="px-4 py-2 rounded-xl text-xs font-semibold text-zinc-700 hover:bg-zinc-100 transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={holidayActionLoading}
+                  className="px-4 py-2 rounded-xl text-xs font-bold text-white bg-black hover:bg-zinc-800 transition-colors shadow-xs flex items-center gap-1.5"
+                >
+                  {holidayActionLoading ? "Declaring..." : "Confirm & Declare Holiday"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </AppLayout>
   );
 }

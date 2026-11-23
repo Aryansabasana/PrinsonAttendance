@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
     const dateStr = searchParams.get("dateStr") || formatDateStr(new Date());
 
     // 1. Get all active employees in this tenant DB
-    const [allActiveEmployees, existingAttendances, leaveRequestsOnDate] = await Promise.all([
+    const [allActiveEmployees, existingAttendances, leaveRequestsOnDate, holiday] = await Promise.all([
       models.Employee.find({ isActive: true }).sort({ employeeCode: 1 }).lean(),
       models.Attendance.find({ dateStr }).populate("markedBy", "name").lean(),
       models.LeaveRequest.find({
@@ -29,6 +29,7 @@ export async function GET(request: NextRequest) {
         endDate: { $gte: dateStr },
         status: { $in: ["PENDING", "APPROVED"] },
       }).lean(),
+      models.Holiday.findOne({ dateStr }).lean(),
     ]);
 
     // Map existing attendance by employeeId string
@@ -87,6 +88,8 @@ export async function GET(request: NextRequest) {
       success: true,
       company: tenant,
       dateStr,
+      isHoliday: Boolean(holiday),
+      holiday: holiday ? { name: holiday.name, declaredByName: holiday.declaredByName } : null,
       summary: {
         totalEmployees: allActiveEmployees.length,
         presentCount,
@@ -113,6 +116,17 @@ export async function POST(request: NextRequest) {
     }
 
     const { employeeId, dateStr, status, checkInTime = "", checkOutTime = "", remarks = "" } = parsed.data;
+
+    // Check if the date has been declared as a Holiday by the Admin
+    const holiday = await models.Holiday.findOne({ dateStr }).lean();
+    if (holiday) {
+      return NextResponse.json(
+        {
+          error: `Cannot mark attendance: ${dateStr} has been declared as a Holiday (${holiday.name}). Attendance marking is disabled on holidays.`,
+        },
+        { status: 400 }
+      );
+    }
 
     const employee = await models.Employee.findById(employeeId);
     if (!employee) {

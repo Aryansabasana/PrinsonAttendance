@@ -1,0 +1,12 @@
+[
+  {
+    "employeeCode": "EMP-001",
+    "fullName": "Employee Name",
+    "email": "employee@example.com",
+    "phone": "+91 98765 43210",
+    "designation": "Manager",
+    "department": "Operations",
+    "joiningDate": "2024-01-01",
+    "password": "Password123!"
+  }
+]

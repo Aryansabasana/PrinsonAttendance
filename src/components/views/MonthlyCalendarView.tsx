@@ -232,6 +232,10 @@ export function MonthlyCalendarView({ company = "plynest" }: MonthlyCalendarView
             <span>Absent</span>
           </div>
           <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-blue-600" />
+            <span>Holiday</span>
+          </div>
+          <div className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-zinc-200 border border-zinc-300" />
             <span>Not Marked</span>
           </div>
@@ -251,37 +255,37 @@ export function MonthlyCalendarView({ company = "plynest" }: MonthlyCalendarView
 
             {calendarData?.days?.map((day: any) => {
               if (isIndividual) {
-                const meta =
-                  ATTENDANCE_STATUS_META[day.status as keyof typeof ATTENDANCE_STATUS_META] ||
-                  ATTENDANCE_STATUS_META.NOT_MARKED;
+                const isHol = day.isHoliday || day.status === "HOLIDAY";
+                const meta = isHol
+                  ? ATTENDANCE_STATUS_META.HOLIDAY
+                  : ATTENDANCE_STATUS_META[day.status as keyof typeof ATTENDANCE_STATUS_META] ||
+                    ATTENDANCE_STATUS_META.NOT_MARKED;
 
                 return (
                   <div
                     key={day.dateStr}
                     onClick={() => setSelectedDay(day)}
-                    className={`min-h-[90px] p-2.5 rounded-xl border cursor-pointer hover:shadow-md transition-all flex flex-col justify-between ${
-                      day.isSunday
-                        ? "bg-zinc-100/50 border-zinc-200 text-zinc-400"
-                        : meta.calendarBg
-                    }`}
+                    className={`min-h-[90px] p-2.5 rounded-xl border cursor-pointer hover:shadow-md transition-all flex flex-col justify-between ${meta.calendarBg}`}
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold font-mono">{day.day}</span>
-                      {day.isSunday && (
-                        <span className="text-[9px] uppercase font-bold text-zinc-400">Off</span>
+                      {isHol && (
+                        <span className="text-[9px] uppercase font-bold text-blue-700 bg-blue-100 px-1.5 py-0.5 rounded border border-blue-200">
+                          Holiday
+                        </span>
                       )}
                     </div>
 
-                    {!day.isSunday && (
-                      <div className="mt-auto">
-                        <span className="text-[10px] font-bold block">{meta.label}</span>
-                        {day.checkInTime && (
-                          <span className="text-[9px] font-mono text-zinc-500 block">
-                            {day.checkInTime}
-                          </span>
-                        )}
-                      </div>
-                    )}
+                    <div className="mt-auto">
+                      <span className="text-[10px] font-bold block">
+                        {isHol ? (day.holidayName || "Holiday") : meta.label}
+                      </span>
+                      {!isHol && day.checkInTime && (
+                        <span className="text-[9px] font-mono text-zinc-500 block">
+                          {day.checkInTime}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 );
               }
@@ -289,14 +293,15 @@ export function MonthlyCalendarView({ company = "plynest" }: MonthlyCalendarView
               // Company-wide aggregate cell
               const counts = day.counts || {};
               const hasActivity = counts.present > 0 || counts.halfDay > 0 || counts.absent > 0 || counts.approvedLeave > 0;
+              const isHol = day.isHoliday;
 
               return (
                 <Link
                   key={day.dateStr}
                   href={getTenantUrl(`/attendance/register?date=${day.dateStr}`, company)}
                   className={`min-h-[95px] p-2.5 rounded-xl border transition-all flex flex-col justify-between group hover:border-black hover:shadow-md ${
-                    day.isSunday
-                      ? "bg-zinc-100/50 border-zinc-200 text-zinc-400"
+                    isHol
+                      ? "bg-blue-50/50 border-blue-200 text-blue-900"
                       : hasActivity
                       ? "bg-white border-zinc-200"
                       : "bg-zinc-50/50 border-dashed border-zinc-200"
@@ -306,8 +311,10 @@ export function MonthlyCalendarView({ company = "plynest" }: MonthlyCalendarView
                     <span className="text-xs font-bold font-mono group-hover:text-black">
                       {day.day}
                     </span>
-                    {day.isSunday ? (
-                      <span className="text-[9px] uppercase font-bold text-zinc-400">Off</span>
+                    {isHol ? (
+                      <span className="text-[9px] uppercase font-bold text-blue-700 bg-blue-100 px-1.5 py-0.5 rounded border border-blue-200">
+                        Holiday
+                      </span>
                     ) : (
                       <span className="text-[9px] text-zinc-400 font-medium group-hover:underline">
                         Register →
@@ -315,7 +322,14 @@ export function MonthlyCalendarView({ company = "plynest" }: MonthlyCalendarView
                     )}
                   </div>
 
-                  {!day.isSunday && hasActivity && (
+                  {isHol ? (
+                    <div className="mt-auto">
+                      <span className="text-[10px] font-bold text-blue-800 line-clamp-1">
+                        {day.holidayName || "Official Holiday"}
+                      </span>
+                      <span className="text-[9px] text-blue-600 block">Attendance Off</span>
+                    </div>
+                  ) : hasActivity ? (
                     <div className="space-y-1 mt-auto">
                       {counts.present > 0 && (
                         <div className="flex items-center justify-between text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">
@@ -342,7 +356,7 @@ export function MonthlyCalendarView({ company = "plynest" }: MonthlyCalendarView
                         </div>
                       )}
                     </div>
-                  )}
+                  ) : null}
                 </Link>
               );
             })}
@@ -367,7 +381,13 @@ export function MonthlyCalendarView({ company = "plynest" }: MonthlyCalendarView
             <div className="space-y-3 p-4 bg-zinc-50 rounded-xl border border-zinc-200">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-semibold text-zinc-500">Recorded Status:</span>
-                <StatusBadge status={selectedDay.status} size="sm" />
+                {selectedDay.isHoliday || selectedDay.status === "HOLIDAY" ? (
+                  <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
+                    Holiday ({selectedDay.holidayName || "Official"})
+                  </span>
+                ) : (
+                  <StatusBadge status={selectedDay.status} size="sm" />
+                )}
               </div>
 
               <div className="flex items-center justify-between">

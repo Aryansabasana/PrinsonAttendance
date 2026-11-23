@@ -1,0 +1,3163 @@
+[
+  {
+    "ts": "2026-11-22T13:44:34.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.auditlogs",
+    "o": {
+      "_id": "6b02f1c1407554842c2dbfae",
+      "action": "ATTENDANCE_CREATED",
+      "performedBy": "6b02ed38397d76b4ccc1b48a",
+      "performerName": "Vikramaditya Roy",
+      "targetEmployee": "6b02ed38397d76b4ccc1b48c",
+      "employeeCode": "PP-101",
+      "employeeName": "Rajesh Sharma",
+      "dateStr": "2026-11-29",
+      "newValue": {
+        "status": "PRESENT",
+        "checkInTime": "09:30",
+        "checkOutTime": "",
+        "remarks": ""
+      },
+      "reason": "Daily attendance marked",
+      "createdAt": "2026-11-22T13:44:33.274Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02f1c1407554842c2dbfae"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:34.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.attendances",
+    "o": {
+      "_id": "6b02f1c0407554842c2dbfac",
+      "employee": "6b02ed38397d76b4ccc1b48c",
+      "dateStr": "2026-11-29",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "",
+      "remarks": "",
+      "markedBy": "6b02ed38397d76b4ccc1b48a",
+      "createdAt": "2026-11-22T13:44:32.992Z",
+      "updatedAt": "2026-11-22T13:44:32.992Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02f1c0407554842c2dbfac"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:32.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.auditlogs",
+    "o": {
+      "_id": "6b02f1bf407554842c2dbfa6",
+      "action": "HOLIDAY_CANCELLED",
+      "performedBy": "6b02ed38397d76b4ccc1b48a",
+      "performerName": "Vikramaditya Roy",
+      "dateStr": "2026-11-29",
+      "reason": "Holiday cancelled for 2026-11-29",
+      "createdAt": "2026-11-22T13:44:31.383Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02f1bf407554842c2dbfa6"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:32.000Z",
+    "op": "d",
+    "ns": "plynest_attendance.holidays",
+    "o": {
+      "_id": "6b02f1bea941bde1f25661e3"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:31.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.auditlogs",
+    "o": {
+      "_id": "6b02f1be407554842c2dbf9d",
+      "action": "ATTENDANCE_CREATED",
+      "performedBy": "6b02ed38397d76b4ccc1b48a",
+      "performerName": "Vikramaditya Roy",
+      "targetEmployee": "6b02ed38397d76b4ccc1b48c",
+      "employeeCode": "PP-101",
+      "employeeName": "Rajesh Sharma",
+      "dateStr": "2026-11-22",
+      "newValue": {
+        "status": "PRESENT",
+        "checkInTime": "09:30",
+        "checkOutTime": "",
+        "remarks": ""
+      },
+      "reason": "Daily attendance marked",
+      "createdAt": "2026-11-22T13:44:30.099Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02f1be407554842c2dbf9d"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:31.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.attendances",
+    "o": {
+      "_id": "6b02f1be407554842c2dbf9b",
+      "employee": "6b02ed38397d76b4ccc1b48c",
+      "dateStr": "2026-11-22",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "",
+      "remarks": "",
+      "markedBy": "6b02ed38397d76b4ccc1b48a",
+      "createdAt": "2026-11-22T13:44:30.027Z",
+      "updatedAt": "2026-11-22T13:44:30.027Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02f1be407554842c2dbf9b"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:30.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.auditlogs",
+    "o": {
+      "_id": "6b02f1bd407554842c2dbf8c",
+      "action": "HOLIDAY_DECLARED",
+      "performedBy": "6b02ed38397d76b4ccc1b48a",
+      "performerName": "Vikramaditya Roy",
+      "dateStr": "2026-11-29",
+      "newValue": {
+        "name": "Sunday Off"
+      },
+      "reason": "Holiday declared for 2026-11-29: Sunday Off",
+      "createdAt": "2026-11-22T13:44:29.142Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02f1bd407554842c2dbf8c"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:30.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.holidays",
+    "o": {
+      "_id": "6b02f1bea941bde1f25661e3",
+      "dateStr": "2026-11-29",
+      "__v": 0,
+      "createdAt": "2026-11-22T13:44:28.985Z",
+      "declaredBy": "6b02ed38397d76b4ccc1b48a",
+      "declaredByName": "Vikramaditya Roy",
+      "name": "Sunday Off",
+      "updatedAt": "2026-11-22T13:44:28.985Z"
+    },
+    "o2": {
+      "_id": "6b02f1bea941bde1f25661e3"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:29.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "count": 2,
+          "updatedAt": "2026-11-22T13:44:28.001Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02f1bba941bde1f25661e1"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:29.000Z",
+    "op": "u",
+    "ns": "hytek_attendance.users",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "lastLogin": "2026-11-22T13:44:27.937Z",
+          "updatedAt": "2026-11-22T13:44:27.937Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ebc1660251ac0cf534ac"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:28.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "_id": "6b02f1bca941bde1f25661e2",
+      "key": "auth:plynest:127.0.0.1:ph-101",
+      "__v": 0,
+      "count": 1,
+      "createdAt": "2026-11-22T13:44:26.957Z",
+      "expireAt": "2026-11-22T13:59:26.956Z",
+      "updatedAt": "2026-11-22T13:44:26.957Z"
+    },
+    "o2": {
+      "_id": "6b02f1bca941bde1f25661e2"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:27.000Z",
+    "op": "u",
+    "ns": "hytek_attendance.users",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "lastLogin": "2026-11-22T13:44:26.814Z",
+          "updatedAt": "2026-11-22T13:44:26.814Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ebc1660251ac0cf534a8"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:27.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "_id": "6b02f1bba941bde1f25661e1",
+      "key": "auth:plynest:127.0.0.1:admin@hytek.com",
+      "__v": 0,
+      "count": 1,
+      "createdAt": "2026-11-22T13:44:26.083Z",
+      "expireAt": "2026-11-22T13:59:26.082Z",
+      "updatedAt": "2026-11-22T13:44:26.083Z"
+    },
+    "o2": {
+      "_id": "6b02f1bba941bde1f25661e1"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:27.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.users",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "lastLogin": "2026-11-22T13:44:25.977Z",
+          "updatedAt": "2026-11-22T13:44:25.979Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ed38397d76b4ccc1b48a"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:26.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "_id": "6b02f1baa941bde1f25661e0",
+      "key": "auth:plynest:127.0.0.1:admin@plynest.com",
+      "__v": 0,
+      "count": 1,
+      "createdAt": "2026-11-22T13:44:25.554Z",
+      "expireAt": "2026-11-22T13:59:25.553Z",
+      "updatedAt": "2026-11-22T13:44:25.554Z"
+    },
+    "o2": {
+      "_id": "6b02f1baa941bde1f25661e0"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:25.000Z",
+    "op": "d",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "_id": "6b02ef4aa941bde1f25661b1"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:25.000Z",
+    "op": "c",
+    "ns": "hytek_attendance.$cmd",
+    "o": {
+      "createIndexes": "holidays",
+      "v": 2,
+      "key": {
+        "dateStr": 1
+      },
+      "name": "dateStr_1",
+      "background": true
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:24.000Z",
+    "op": "c",
+    "ns": "hytek_attendance.$cmd",
+    "o": {
+      "create": "holidays",
+      "idIndex": {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      }
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:21.000Z",
+    "op": "c",
+    "ns": "plynest_attendance.$cmd",
+    "o": {
+      "createIndexes": "holidays",
+      "v": 2,
+      "key": {
+        "dateStr": 1
+      },
+      "name": "dateStr_1",
+      "background": true
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:20.000Z",
+    "op": "c",
+    "ns": "plynest_attendance.$cmd",
+    "o": {
+      "create": "holidays",
+      "idIndex": {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      }
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:20.000Z",
+    "op": "d",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "_id": "6b02f1b1407554842c2dbf0c"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:20.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "isActive": false,
+          "updatedAt": "2026-11-22T13:44:19.165Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02f1b1407554842c2dbf0c"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:20.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "_id": "6b02f1b3407554842c2dbf2c",
+      "employee": "6b02f1b1407554842c2dbf0c",
+      "leaveType": "OTHER",
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-20",
+      "reason": "Weekend extension",
+      "status": "REJECTED",
+      "adminRemarks": "Showroom promotional exhibition scheduled that day",
+      "createdAt": "2026-11-22T13:44:19.045Z",
+      "updatedAt": "2026-11-22T13:44:19.045Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02f1b3407554842c2dbf2c"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:20.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.attendances",
+    "o": {
+      "_id": "6b02f1b4a941bde1f25661df",
+      "dateStr": "2026-11-10",
+      "employee": "6b02f1b1407554842c2dbf0c",
+      "__v": 0,
+      "checkInTime": "",
+      "checkOutTime": "",
+      "createdAt": "2026-11-22T13:44:18.917Z",
+      "leaveRequest": "6b02f1b2407554842c2dbf26",
+      "remarks": "Approved leave (CASUAL): Approved by Director Vikramaditya",
+      "status": "APPROVED_LEAVE",
+      "updatedAt": "2026-11-22T13:44:18.917Z"
+    },
+    "o2": {
+      "_id": "6b02f1b4a941bde1f25661df"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:19.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "adminRemarks": "Approved by Director Vikramaditya",
+          "status": "APPROVED",
+          "updatedAt": "2026-11-22T13:44:18.842Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02f1b2407554842c2dbf26"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:19.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "_id": "6b02f1b2407554842c2dbf26",
+      "employee": "6b02f1b1407554842c2dbf0c",
+      "leaveType": "CASUAL",
+      "startDate": "2026-11-10",
+      "endDate": "2026-11-11",
+      "reason": "Personal family commitment in Chennai",
+      "status": "PENDING",
+      "adminRemarks": "",
+      "createdAt": "2026-11-22T13:44:18.676Z",
+      "updatedAt": "2026-11-22T13:44:18.676Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02f1b2407554842c2dbf26"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:19.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.auditlogs",
+    "o": {
+      "_id": "6b02f1b2407554842c2dbf1f",
+      "action": "ATTENDANCE_CORRECTED",
+      "performedBy": "6b02f1b2407554842c2dbf1e",
+      "performerName": "Admin Vikramaditya",
+      "targetEmployee": "6b02f1b1407554842c2dbf0c",
+      "employeeCode": "TEST-999",
+      "employeeName": "Test Staff Member",
+      "dateStr": "2026-11-01",
+      "previousValue": {
+        "status": "PRESENT"
+      },
+      "newValue": {
+        "status": "HALF_DAY"
+      },
+      "reason": "Correction verified with architect site log",
+      "createdAt": "2026-11-22T13:44:18.298Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02f1b2407554842c2dbf1f"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:19.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.attendances",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "remarks": "Shifted to half-day site consultation",
+          "status": "HALF_DAY",
+          "updatedAt": "2026-11-22T13:44:18.226Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02f1b2407554842c2dbf1a"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:19.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.attendances",
+    "o": {
+      "_id": "6b02f1b2407554842c2dbf1a",
+      "employee": "6b02f1b1407554842c2dbf0c",
+      "dateStr": "2026-11-01",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On showroom floor",
+      "createdAt": "2026-11-22T13:44:18.093Z",
+      "updatedAt": "2026-11-22T13:44:18.093Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02f1b2407554842c2dbf1a"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:44:19.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "_id": "6b02f1b1407554842c2dbf0c",
+      "employeeCode": "TEST-999",
+      "fullName": "Test Staff Member",
+      "email": "teststaff@plynest.com",
+      "phone": "+91 99000 00000",
+      "designation": "Display Specialist",
+      "department": "Store Operations",
+      "joiningDate": "2026-01-01",
+      "isActive": true,
+      "avatarUrl": "",
+      "createdAt": "2026-11-22T13:44:17.315Z",
+      "updatedAt": "2026-11-22T13:44:17.315Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02f1b1407554842c2dbf0c"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:34:02.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "_id": "6b02ef4aa941bde1f25661b1",
+      "key": "auth:plynest:49.14.135.32:admin@plynest.com",
+      "__v": 0,
+      "count": 1,
+      "createdAt": "2026-11-22T13:34:01.547Z",
+      "expireAt": "2026-11-22T13:48:59.849Z",
+      "updatedAt": "2026-11-22T13:34:01.547Z"
+    },
+    "o2": {
+      "_id": "6b02ef4aa941bde1f25661b1"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:49.000Z",
+    "op": "d",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "_id": "6b02ed9778b2fa645ffcb251"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:48.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "_id": "6b02ed9778b2fa645ffcb251",
+      "employee": "6b02ed94a941bde1f256618b",
+      "leaveType": "CASUAL",
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-21",
+      "reason": "Bob confidential leave reason",
+      "status": "PENDING",
+      "adminRemarks": "",
+      "createdAt": "2026-11-22T13:26:47.498Z",
+      "updatedAt": "2026-11-22T13:26:47.498Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed9778b2fa645ffcb251"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:48.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.users",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "tokenVersion": 0,
+          "updatedAt": "2026-11-22T13:26:47.425Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ed94a941bde1f256618c"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:48.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.users",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "tokenVersion": 1,
+          "updatedAt": "2026-11-22T13:26:47.172Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ed94a941bde1f256618c"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:47.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "_id": "6b02ed97a941bde1f2566192",
+      "key": "auth:plynest:127.0.0.1:sec_deactivated",
+      "__v": 0,
+      "count": 1,
+      "createdAt": "2026-11-22T13:26:46.558Z",
+      "expireAt": "2026-11-22T13:41:46.558Z",
+      "updatedAt": "2026-11-22T13:26:46.558Z"
+    },
+    "o2": {
+      "_id": "6b02ed97a941bde1f2566192"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:45.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "_id": "6b02ed95a941bde1f2566191",
+      "key": "auth:plynest:127.0.0.1:non_existent_user_99999",
+      "__v": 0,
+      "count": 1,
+      "createdAt": "2026-11-22T13:26:44.729Z",
+      "expireAt": "2026-11-22T13:41:44.728Z",
+      "updatedAt": "2026-11-22T13:26:44.729Z"
+    },
+    "o2": {
+      "_id": "6b02ed95a941bde1f2566191"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:45.000Z",
+    "op": "d",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "_id": "6b02ed95a941bde1f2566190"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:45.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "count": 6,
+          "updatedAt": "2026-11-22T13:26:44.587Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ed95a941bde1f2566190"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:45.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "count": 5,
+          "updatedAt": "2026-11-22T13:26:44.526Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ed95a941bde1f2566190"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:45.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "count": 4,
+          "updatedAt": "2026-11-22T13:26:44.474Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ed95a941bde1f2566190"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:45.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "count": 3,
+          "updatedAt": "2026-11-22T13:26:44.420Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ed95a941bde1f2566190"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:45.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "count": 2,
+          "updatedAt": "2026-11-22T13:26:44.357Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ed95a941bde1f2566190"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:45.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "_id": "6b02ed95a941bde1f2566190",
+      "key": "test:ratelimit:1795354004163",
+      "__v": 0,
+      "count": 1,
+      "createdAt": "2026-11-22T13:26:44.267Z",
+      "expireAt": "2026-11-22T13:27:44.265Z",
+      "updatedAt": "2026-11-22T13:26:44.267Z"
+    },
+    "o2": {
+      "_id": "6b02ed95a941bde1f2566190"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:45.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.users",
+    "o": {
+      "_id": "6b02ed95a941bde1f256618f",
+      "identifier": "sec_deactivated",
+      "__v": 0,
+      "createdAt": "2026-11-22T13:26:44.078Z",
+      "employee": "6b02ed94a941bde1f256618a",
+      "isActive": false,
+      "name": "Security Deactivated",
+      "passwordHash": "$2a$12$eXAMP1eHashForTestingOnlyNotRealHash12345678901234567890",
+      "role": "EMPLOYEE",
+      "tokenVersion": 0,
+      "updatedAt": "2026-11-22T13:26:44.078Z"
+    },
+    "o2": {
+      "_id": "6b02ed95a941bde1f256618f"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:45.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.users",
+    "o": {
+      "_id": "6b02ed95a941bde1f256618e",
+      "identifier": "sec_admin",
+      "__v": 0,
+      "createdAt": "2026-11-22T13:26:44.004Z",
+      "isActive": true,
+      "name": "Security Admin",
+      "passwordHash": "$2a$12$eXAMP1eHashForTestingOnlyNotRealHash12345678901234567890",
+      "role": "ADMIN",
+      "tokenVersion": 0,
+      "updatedAt": "2026-11-22T13:26:44.004Z"
+    },
+    "o2": {
+      "_id": "6b02ed95a941bde1f256618e"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:44.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.users",
+    "o": {
+      "_id": "6b02ed94a941bde1f256618d",
+      "identifier": "sec_bob",
+      "__v": 0,
+      "createdAt": "2026-11-22T13:26:43.759Z",
+      "employee": "6b02ed94a941bde1f256618b",
+      "isActive": true,
+      "name": "Security Bob",
+      "passwordHash": "$2a$12$eXAMP1eHashForTestingOnlyNotRealHash12345678901234567890",
+      "role": "EMPLOYEE",
+      "tokenVersion": 0,
+      "updatedAt": "2026-11-22T13:26:43.759Z"
+    },
+    "o2": {
+      "_id": "6b02ed94a941bde1f256618d"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:44.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.users",
+    "o": {
+      "_id": "6b02ed94a941bde1f256618c",
+      "identifier": "sec_alice",
+      "__v": 0,
+      "createdAt": "2026-11-22T13:26:43.676Z",
+      "employee": "6b02ed94a941bde1f256618a",
+      "isActive": true,
+      "name": "Security Alice",
+      "passwordHash": "$2a$12$eXAMP1eHashForTestingOnlyNotRealHash12345678901234567890",
+      "role": "EMPLOYEE",
+      "tokenVersion": 0,
+      "updatedAt": "2026-11-22T13:26:43.676Z"
+    },
+    "o2": {
+      "_id": "6b02ed94a941bde1f256618c"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:44.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "_id": "6b02ed94a941bde1f256618b",
+      "employeeCode": "SEC-EMP-B",
+      "__v": 0,
+      "avatarUrl": "",
+      "createdAt": "2026-11-22T13:26:43.269Z",
+      "department": "Security",
+      "designation": "Specialist",
+      "email": "bob.security@plynest.com",
+      "fullName": "Security Bob",
+      "isActive": true,
+      "joiningDate": "2026-01-01",
+      "phone": "+91 91000 00002",
+      "updatedAt": "2026-11-22T13:26:43.269Z"
+    },
+    "o2": {
+      "_id": "6b02ed94a941bde1f256618b"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:44.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "_id": "6b02ed94a941bde1f256618a",
+      "employeeCode": "SEC-EMP-A",
+      "__v": 0,
+      "avatarUrl": "",
+      "createdAt": "2026-11-22T13:26:42.875Z",
+      "department": "Security",
+      "designation": "Executive",
+      "email": "alice.security@plynest.com",
+      "fullName": "Security Alice",
+      "isActive": true,
+      "joiningDate": "2026-01-01",
+      "phone": "+91 91000 00001",
+      "updatedAt": "2026-11-22T13:26:42.875Z"
+    },
+    "o2": {
+      "_id": "6b02ed94a941bde1f256618a"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:24.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "count": 2,
+          "updatedAt": "2026-11-22T13:26:23.691Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ed7fa941bde1f2566187"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:24.000Z",
+    "op": "u",
+    "ns": "hytek_attendance.users",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "updatedAt": "2026-11-22T13:26:23.627Z"
+        },
+        "i": {
+          "lastLogin": "2026-11-22T13:26:23.627Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ebc1660251ac0cf534ac"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:23.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "_id": "6b02ed7fa941bde1f2566188",
+      "key": "auth:plynest:127.0.0.1:ph-101",
+      "__v": 0,
+      "count": 1,
+      "createdAt": "2026-11-22T13:26:22.595Z",
+      "expireAt": "2026-11-22T13:41:22.595Z",
+      "updatedAt": "2026-11-22T13:26:22.595Z"
+    },
+    "o2": {
+      "_id": "6b02ed7fa941bde1f2566188"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:23.000Z",
+    "op": "u",
+    "ns": "hytek_attendance.users",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "updatedAt": "2026-11-22T13:26:22.531Z"
+        },
+        "i": {
+          "lastLogin": "2026-11-22T13:26:22.531Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ebc1660251ac0cf534a8"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:23.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "_id": "6b02ed7fa941bde1f2566187",
+      "key": "auth:plynest:127.0.0.1:admin@hytek.com",
+      "__v": 0,
+      "count": 1,
+      "createdAt": "2026-11-22T13:26:22.000Z",
+      "expireAt": "2026-11-22T13:41:21.999Z",
+      "updatedAt": "2026-11-22T13:26:22.000Z"
+    },
+    "o2": {
+      "_id": "6b02ed7fa941bde1f2566187"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:22.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.users",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "updatedAt": "2026-11-22T13:26:21.928Z"
+        },
+        "i": {
+          "lastLogin": "2026-11-22T13:26:21.928Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ed38397d76b4ccc1b48a"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:22.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "_id": "6b02ed7ea941bde1f2566186",
+      "key": "auth:plynest:127.0.0.1:admin@plynest.com",
+      "__v": 0,
+      "count": 1,
+      "createdAt": "2026-11-22T13:26:21.592Z",
+      "expireAt": "2026-11-22T13:41:21.592Z",
+      "updatedAt": "2026-11-22T13:26:21.592Z"
+    },
+    "o2": {
+      "_id": "6b02ed7ea941bde1f2566186"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:22.000Z",
+    "op": "d",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "_id": "6b02ebe6a941bde1f2566167"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:18.000Z",
+    "op": "d",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "_id": "6b02ed775e08ee4ed4d0e64a"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:18.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "isActive": false,
+          "updatedAt": "2026-11-22T13:26:17.740Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ed775e08ee4ed4d0e64a"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:18.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "_id": "6b02ed795e08ee4ed4d0e66a",
+      "employee": "6b02ed775e08ee4ed4d0e64a",
+      "leaveType": "OTHER",
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-20",
+      "reason": "Weekend extension",
+      "status": "REJECTED",
+      "adminRemarks": "Showroom promotional exhibition scheduled that day",
+      "createdAt": "2026-11-22T13:26:17.615Z",
+      "updatedAt": "2026-11-22T13:26:17.615Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed795e08ee4ed4d0e66a"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:18.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.attendances",
+    "o": {
+      "_id": "6b02ed7aa941bde1f2566184",
+      "employee": "6b02ed775e08ee4ed4d0e64a",
+      "dateStr": "2026-11-10",
+      "__v": 0,
+      "checkInTime": "",
+      "checkOutTime": "",
+      "createdAt": "2026-11-22T13:26:17.333Z",
+      "leaveRequest": "6b02ed785e08ee4ed4d0e664",
+      "remarks": "Approved leave (CASUAL): Approved by Director Vikramaditya",
+      "status": "APPROVED_LEAVE",
+      "updatedAt": "2026-11-22T13:26:17.333Z"
+    },
+    "o2": {
+      "_id": "6b02ed7aa941bde1f2566184"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:18.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "adminRemarks": "Approved by Director Vikramaditya",
+          "status": "APPROVED",
+          "updatedAt": "2026-11-22T13:26:17.229Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ed785e08ee4ed4d0e664"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:17.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "_id": "6b02ed785e08ee4ed4d0e664",
+      "employee": "6b02ed775e08ee4ed4d0e64a",
+      "leaveType": "CASUAL",
+      "startDate": "2026-11-10",
+      "endDate": "2026-11-11",
+      "reason": "Personal family commitment in Chennai",
+      "status": "PENDING",
+      "adminRemarks": "",
+      "createdAt": "2026-11-22T13:26:16.949Z",
+      "updatedAt": "2026-11-22T13:26:16.949Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed785e08ee4ed4d0e664"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:17.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.auditlogs",
+    "o": {
+      "_id": "6b02ed785e08ee4ed4d0e65d",
+      "action": "ATTENDANCE_CORRECTED",
+      "performedBy": "6b02ed785e08ee4ed4d0e65c",
+      "performerName": "Admin Vikramaditya",
+      "targetEmployee": "6b02ed775e08ee4ed4d0e64a",
+      "employeeCode": "TEST-999",
+      "employeeName": "Test Staff Member",
+      "dateStr": "2026-11-01",
+      "previousValue": {
+        "status": "PRESENT"
+      },
+      "newValue": {
+        "status": "HALF_DAY"
+      },
+      "reason": "Correction verified with architect site log",
+      "createdAt": "2026-11-22T13:26:16.660Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed785e08ee4ed4d0e65d"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:17.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.attendances",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "remarks": "Shifted to half-day site consultation",
+          "status": "HALF_DAY",
+          "updatedAt": "2026-11-22T13:26:16.605Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ed785e08ee4ed4d0e657"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:17.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.attendances",
+    "o": {
+      "_id": "6b02ed785e08ee4ed4d0e657",
+      "employee": "6b02ed775e08ee4ed4d0e64a",
+      "dateStr": "2026-11-01",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On showroom floor",
+      "createdAt": "2026-11-22T13:26:16.471Z",
+      "updatedAt": "2026-11-22T13:26:16.471Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed785e08ee4ed4d0e657"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:26:17.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "_id": "6b02ed775e08ee4ed4d0e64a",
+      "employeeCode": "TEST-999",
+      "fullName": "Test Staff Member",
+      "email": "teststaff@plynest.com",
+      "phone": "+91 99000 00000",
+      "designation": "Display Specialist",
+      "department": "Store Operations",
+      "joiningDate": "2026-01-01",
+      "isActive": true,
+      "avatarUrl": "",
+      "createdAt": "2026-11-22T13:26:15.622Z",
+      "updatedAt": "2026-11-22T13:26:15.622Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed775e08ee4ed4d0e64a"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:15.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.auditlogs",
+    "o": {
+      "_id": "6b02ed3a397d76b4ccc1b51f",
+      "action": "LEAVE_APPROVED",
+      "performedBy": "6b02ed38397d76b4ccc1b48a",
+      "performerName": "Vikramaditya Roy",
+      "targetEmployee": "6b02ed39397d76b4ccc1b49e",
+      "employeeCode": "PP-105",
+      "employeeName": "Mohammed Farhan",
+      "dateStr": "2026-11-22",
+      "previousValue": {
+        "status": "PENDING"
+      },
+      "newValue": {
+        "status": "APPROVED"
+      },
+      "reason": "Family function approved leave",
+      "createdAt": "2026-11-22T13:25:14.474Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed3a397d76b4ccc1b51f"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:15.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.auditlogs",
+    "o": {
+      "_id": "6b02ed3a397d76b4ccc1b51e",
+      "action": "ATTENDANCE_CORRECTED",
+      "performedBy": "6b02ed38397d76b4ccc1b48a",
+      "performerName": "Vikramaditya Roy",
+      "targetEmployee": "6b02ed38397d76b4ccc1b490",
+      "employeeCode": "PP-102",
+      "employeeName": "Ananya Verma",
+      "dateStr": "2026-11-20",
+      "previousValue": {
+        "status": "ABSENT",
+        "remarks": ""
+      },
+      "newValue": {
+        "status": "PRESENT",
+        "checkInTime": "09:45",
+        "remarks": "Delayed due to architect consultation at site"
+      },
+      "reason": "Employee submitted verified architect site log confirmation",
+      "createdAt": "2026-11-22T13:25:14.474Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed3a397d76b4ccc1b51e"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:15.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "_id": "6b02ed3a397d76b4ccc1b51c",
+      "employee": "6b02ed39397d76b4ccc1b49a",
+      "leaveType": "OTHER",
+      "startDate": "2026-10-25",
+      "endDate": "2026-10-26",
+      "reason": "Weekend extension",
+      "status": "REJECTED",
+      "reviewedBy": "6b02ed38397d76b4ccc1b48a",
+      "reviewedAt": "2026-10-24T00:00:00.000Z",
+      "adminRemarks": "Showroom promotional exhibition scheduled that weekend. Leave cannot be sanctioned.",
+      "createdAt": "2026-11-22T13:25:14.413Z",
+      "updatedAt": "2026-11-22T13:25:14.413Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed3a397d76b4ccc1b51c"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:15.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "_id": "6b02ed3a397d76b4ccc1b51a",
+      "employee": "6b02ed38397d76b4ccc1b490",
+      "leaveType": "CASUAL",
+      "startDate": "2026-10-10",
+      "endDate": "2026-10-12",
+      "reason": "Short personal trip",
+      "status": "APPROVED",
+      "reviewedBy": "6b02ed38397d76b4ccc1b48a",
+      "reviewedAt": "2026-10-08T00:00:00.000Z",
+      "adminRemarks": "Approved. All client presentations handed over.",
+      "createdAt": "2026-11-22T13:25:14.357Z",
+      "updatedAt": "2026-11-22T13:25:14.357Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed3a397d76b4ccc1b51a"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:15.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "_id": "6b02ed3a397d76b4ccc1b518",
+      "employee": "6b02ed39397d76b4ccc1b49e",
+      "leaveType": "PERSONAL",
+      "startDate": "2026-11-22",
+      "endDate": "2026-11-22",
+      "reason": "Family function in hometown",
+      "status": "APPROVED",
+      "reviewedBy": "6b02ed38397d76b4ccc1b48a",
+      "reviewedAt": "2026-11-22T13:25:14.193Z",
+      "adminRemarks": "Approved as requested. Covered by Rajesh.",
+      "createdAt": "2026-11-22T13:25:14.194Z",
+      "updatedAt": "2026-11-22T13:25:14.194Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed3a397d76b4ccc1b518"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:15.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "_id": "6b02ed3a397d76b4ccc1b516",
+      "employee": "6b02ed39397d76b4ccc1b496",
+      "leaveType": "SICK",
+      "startDate": "2026-11-22",
+      "endDate": "2026-11-23",
+      "reason": "Mild fever and throat viral infection, physician advised 2 days rest",
+      "status": "PENDING",
+      "adminRemarks": "",
+      "createdAt": "2026-11-22T13:25:14.132Z",
+      "updatedAt": "2026-11-22T13:25:14.132Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed3a397d76b4ccc1b516"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:15.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "_id": "6b02ed3a397d76b4ccc1b514",
+      "employee": "6b02ed38397d76b4ccc1b48c",
+      "leaveType": "CASUAL",
+      "startDate": "2026-11-23",
+      "endDate": "2026-11-23",
+      "reason": "Attending nephew's graduation ceremony in Mysore",
+      "status": "PENDING",
+      "adminRemarks": "",
+      "createdAt": "2026-11-22T13:25:14.051Z",
+      "updatedAt": "2026-11-22T13:25:14.051Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed3a397d76b4ccc1b514"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:14.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.users",
+    "o": {
+      "_id": "6b02ed39397d76b4ccc1b4ac",
+      "identifier": "divya@plynest.com",
+      "passwordHash": "$2a$10$zQB3Q1dfYKBN.C5YYzz5puMGiBYrqD4TuwbKffWQh/reNEdVEFmR6",
+      "role": "EMPLOYEE",
+      "employee": "6b02ed39397d76b4ccc1b4aa",
+      "name": "Divya Kulkarni",
+      "isActive": false,
+      "tokenVersion": 0,
+      "createdAt": "2026-11-22T13:25:13.818Z",
+      "updatedAt": "2026-11-22T13:25:13.818Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed39397d76b4ccc1b4ac"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:14.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "_id": "6b02ed39397d76b4ccc1b4aa",
+      "employeeCode": "PP-108",
+      "fullName": "Divya Kulkarni",
+      "email": "divya@plynest.com",
+      "phone": "+91 98450 11208",
+      "designation": "Quality & Dispatch Coordinator",
+      "department": "Logistics & Materials",
+      "joiningDate": "2024-07-01",
+      "isActive": false,
+      "avatarUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-11-22T13:25:13.746Z",
+      "updatedAt": "2026-11-22T13:25:13.746Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed39397d76b4ccc1b4aa"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:14.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.users",
+    "o": {
+      "_id": "6b02ed39397d76b4ccc1b4a8",
+      "identifier": "amitav@plynest.com",
+      "passwordHash": "$2a$10$zQB3Q1dfYKBN.C5YYzz5puMGiBYrqD4TuwbKffWQh/reNEdVEFmR6",
+      "role": "EMPLOYEE",
+      "employee": "6b02ed39397d76b4ccc1b4a6",
+      "name": "Amitav Sengupta",
+      "isActive": true,
+      "tokenVersion": 0,
+      "createdAt": "2026-11-22T13:25:13.692Z",
+      "updatedAt": "2026-11-22T13:25:13.692Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed39397d76b4ccc1b4a8"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:14.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "_id": "6b02ed39397d76b4ccc1b4a6",
+      "employeeCode": "PP-107",
+      "fullName": "Amitav Sengupta",
+      "email": "amitav@plynest.com",
+      "phone": "+91 98450 11207",
+      "designation": "Technical Surfaces Consultant",
+      "department": "Sales & Client Advisory",
+      "joiningDate": "2024-04-12",
+      "isActive": true,
+      "avatarUrl": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-11-22T13:25:13.635Z",
+      "updatedAt": "2026-11-22T13:25:13.635Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed39397d76b4ccc1b4a6"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:14.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.users",
+    "o": {
+      "_id": "6b02ed39397d76b4ccc1b4a4",
+      "identifier": "pooja@plynest.com",
+      "passwordHash": "$2a$10$zQB3Q1dfYKBN.C5YYzz5puMGiBYrqD4TuwbKffWQh/reNEdVEFmR6",
+      "role": "EMPLOYEE",
+      "employee": "6b02ed39397d76b4ccc1b4a2",
+      "name": "Pooja Sundaram",
+      "isActive": true,
+      "tokenVersion": 0,
+      "createdAt": "2026-11-22T13:25:13.456Z",
+      "updatedAt": "2026-11-22T13:25:13.456Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed39397d76b4ccc1b4a4"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:14.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "_id": "6b02ed39397d76b4ccc1b4a2",
+      "employeeCode": "PP-106",
+      "fullName": "Pooja Sundaram",
+      "email": "pooja@plynest.com",
+      "phone": "+91 98450 11206",
+      "designation": "Display & Merchandising Coordinator",
+      "department": "Store Operations",
+      "joiningDate": "2024-02-01",
+      "isActive": true,
+      "avatarUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-11-22T13:25:13.394Z",
+      "updatedAt": "2026-11-22T13:25:13.394Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed39397d76b4ccc1b4a2"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:14.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.users",
+    "o": {
+      "_id": "6b02ed39397d76b4ccc1b4a0",
+      "identifier": "farhan@plynest.com",
+      "passwordHash": "$2a$10$zQB3Q1dfYKBN.C5YYzz5puMGiBYrqD4TuwbKffWQh/reNEdVEFmR6",
+      "role": "EMPLOYEE",
+      "employee": "6b02ed39397d76b4ccc1b49e",
+      "name": "Mohammed Farhan",
+      "isActive": true,
+      "tokenVersion": 0,
+      "createdAt": "2026-11-22T13:25:13.335Z",
+      "updatedAt": "2026-11-22T13:25:13.335Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed39397d76b4ccc1b4a0"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:14.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "_id": "6b02ed39397d76b4ccc1b49e",
+      "employeeCode": "PP-105",
+      "fullName": "Mohammed Farhan",
+      "email": "farhan@plynest.com",
+      "phone": "+91 98450 11205",
+      "designation": "Plywood & Panel Inventory Officer",
+      "department": "Logistics & Materials",
+      "joiningDate": "2023-11-05",
+      "isActive": true,
+      "avatarUrl": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-11-22T13:25:13.277Z",
+      "updatedAt": "2026-11-22T13:25:13.277Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed39397d76b4ccc1b49e"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:14.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.users",
+    "o": {
+      "_id": "6b02ed39397d76b4ccc1b49c",
+      "identifier": "sneha@plynest.com",
+      "passwordHash": "$2a$10$zQB3Q1dfYKBN.C5YYzz5puMGiBYrqD4TuwbKffWQh/reNEdVEFmR6",
+      "role": "EMPLOYEE",
+      "employee": "6b02ed39397d76b4ccc1b49a",
+      "name": "Sneha Patel",
+      "isActive": true,
+      "tokenVersion": 0,
+      "createdAt": "2026-11-22T13:25:13.215Z",
+      "updatedAt": "2026-11-22T13:25:13.215Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed39397d76b4ccc1b49c"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:14.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "_id": "6b02ed39397d76b4ccc1b49a",
+      "employeeCode": "PP-104",
+      "fullName": "Sneha Patel",
+      "email": "sneha@plynest.com",
+      "phone": "+91 98450 11204",
+      "designation": "Client Relations & Billing Specialist",
+      "department": "Billing & Front Desk",
+      "joiningDate": "2023-08-20",
+      "isActive": true,
+      "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-11-22T13:25:13.150Z",
+      "updatedAt": "2026-11-22T13:25:13.150Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed39397d76b4ccc1b49a"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:14.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.users",
+    "o": {
+      "_id": "6b02ed39397d76b4ccc1b498",
+      "identifier": "karthik@plynest.com",
+      "passwordHash": "$2a$10$zQB3Q1dfYKBN.C5YYzz5puMGiBYrqD4TuwbKffWQh/reNEdVEFmR6",
+      "role": "EMPLOYEE",
+      "employee": "6b02ed39397d76b4ccc1b496",
+      "name": "Karthik Nair",
+      "isActive": true,
+      "tokenVersion": 0,
+      "createdAt": "2026-11-22T13:25:13.095Z",
+      "updatedAt": "2026-11-22T13:25:13.095Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed39397d76b4ccc1b498"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:14.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "_id": "6b02ed39397d76b4ccc1b496",
+      "employeeCode": "PP-103",
+      "fullName": "Karthik Nair",
+      "email": "karthik@plynest.com",
+      "phone": "+91 98450 11203",
+      "designation": "Architectural Veneer Specialist",
+      "department": "Sales & Client Advisory",
+      "joiningDate": "2023-06-10",
+      "isActive": true,
+      "avatarUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-11-22T13:25:13.028Z",
+      "updatedAt": "2026-11-22T13:25:13.028Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed39397d76b4ccc1b496"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:13.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.users",
+    "o": {
+      "_id": "6b02ed38397d76b4ccc1b493",
+      "identifier": "ananya@plynest.com",
+      "passwordHash": "$2a$10$zQB3Q1dfYKBN.C5YYzz5puMGiBYrqD4TuwbKffWQh/reNEdVEFmR6",
+      "role": "EMPLOYEE",
+      "employee": "6b02ed38397d76b4ccc1b490",
+      "name": "Ananya Verma",
+      "isActive": true,
+      "tokenVersion": 0,
+      "createdAt": "2026-11-22T13:25:12.944Z",
+      "updatedAt": "2026-11-22T13:25:12.944Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed38397d76b4ccc1b493"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:13.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "_id": "6b02ed38397d76b4ccc1b490",
+      "employeeCode": "PP-102",
+      "fullName": "Ananya Verma",
+      "email": "ananya@plynest.com",
+      "phone": "+91 98450 11202",
+      "designation": "Showroom Floor Lead",
+      "department": "Store Operations",
+      "joiningDate": "2023-03-01",
+      "isActive": true,
+      "avatarUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-11-22T13:25:12.881Z",
+      "updatedAt": "2026-11-22T13:25:12.881Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed38397d76b4ccc1b490"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:13.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.users",
+    "o": {
+      "_id": "6b02ed38397d76b4ccc1b48e",
+      "identifier": "rajesh@plynest.com",
+      "passwordHash": "$2a$10$zQB3Q1dfYKBN.C5YYzz5puMGiBYrqD4TuwbKffWQh/reNEdVEFmR6",
+      "role": "EMPLOYEE",
+      "employee": "6b02ed38397d76b4ccc1b48c",
+      "name": "Rajesh Sharma",
+      "isActive": true,
+      "tokenVersion": 0,
+      "createdAt": "2026-11-22T13:25:12.818Z",
+      "updatedAt": "2026-11-22T13:25:12.818Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed38397d76b4ccc1b48e"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:13.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "_id": "6b02ed38397d76b4ccc1b48c",
+      "employeeCode": "PP-101",
+      "fullName": "Rajesh Sharma",
+      "email": "rajesh@plynest.com",
+      "phone": "+91 98450 11201",
+      "designation": "Senior Interior Consultant",
+      "department": "Sales & Client Advisory",
+      "joiningDate": "2023-01-15",
+      "isActive": true,
+      "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-11-22T13:25:12.742Z",
+      "updatedAt": "2026-11-22T13:25:12.742Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed38397d76b4ccc1b48c"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:13.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.users",
+    "o": {
+      "_id": "6b02ed38397d76b4ccc1b48a",
+      "identifier": "admin@plynest.com",
+      "passwordHash": "$2a$10$6KRlJ3epUVme2ucYDPm6SOhL4Xzkl6QoxtFr8Q/xyd4eS5XvEIwhO",
+      "role": "ADMIN",
+      "name": "Vikramaditya Roy",
+      "isActive": true,
+      "tokenVersion": 0,
+      "createdAt": "2026-11-22T13:25:12.669Z",
+      "updatedAt": "2026-11-22T13:25:12.669Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed38397d76b4ccc1b48a"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:13.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.settings",
+    "o": {
+      "_id": "6b02ed38397d76b4ccc1b487",
+      "key": "default_config",
+      "showroomName": "Prinson Plynest Showroom",
+      "showroomAddress": "Plot 42, 100ft Timber & Architectural Panels Arcade, Indiranagar, Bangalore",
+      "timezone": "Asia/Kolkata",
+      "enableCheckInOut": true,
+      "halfDayThresholdHours": 4.5,
+      "standardWorkHoursStart": "09:30",
+      "standardWorkHoursEnd": "18:30",
+      "createdAt": "2026-11-22T13:25:12.376Z",
+      "updatedAt": "2026-11-22T13:25:12.376Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ed38397d76b4ccc1b487"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:12.000Z",
+    "op": "d",
+    "ns": "plynest_attendance.settings",
+    "o": {
+      "_id": "6aee9fb59848545ff12f2a56"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:25:12.000Z",
+    "op": "d",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "_id": "6aeee14c1b04282a4813fc7e"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:34.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.ratelimits",
+    "o": {
+      "_id": "6b02ebe6a941bde1f2566167",
+      "key": "auth:plynest:127.0.0.1:admin@plynest.com",
+      "__v": 0,
+      "count": 1,
+      "createdAt": "2026-11-22T13:19:33.119Z",
+      "expireAt": "2026-11-22T13:34:33.119Z",
+      "updatedAt": "2026-11-22T13:19:33.119Z"
+    },
+    "o2": {
+      "_id": "6b02ebe6a941bde1f2566167"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:30.000Z",
+    "op": "d",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "_id": "6b02ebdfdf2d2d95eb46e2ec"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:30.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "isActive": false,
+          "updatedAt": "2026-11-22T13:19:29.152Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ebdfdf2d2d95eb46e2ec"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:29.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "_id": "6b02ebe0df2d2d95eb46e30c",
+      "employee": "6b02ebdfdf2d2d95eb46e2ec",
+      "leaveType": "OTHER",
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-20",
+      "reason": "Weekend extension",
+      "status": "REJECTED",
+      "adminRemarks": "Showroom promotional exhibition scheduled that day",
+      "createdAt": "2026-11-22T13:19:28.979Z",
+      "updatedAt": "2026-11-22T13:19:28.979Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebe0df2d2d95eb46e30c"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:29.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.attendances",
+    "o": {
+      "_id": "6b02ebe1a941bde1f2566166",
+      "dateStr": "2026-11-10",
+      "employee": "6b02ebdfdf2d2d95eb46e2ec",
+      "__v": 0,
+      "checkInTime": "",
+      "checkOutTime": "",
+      "createdAt": "2026-11-22T13:19:28.829Z",
+      "leaveRequest": "6b02ebe0df2d2d95eb46e306",
+      "remarks": "Approved leave (CASUAL): Approved by Director Vikramaditya",
+      "status": "APPROVED_LEAVE",
+      "updatedAt": "2026-11-22T13:19:28.829Z"
+    },
+    "o2": {
+      "_id": "6b02ebe1a941bde1f2566166"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:29.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "adminRemarks": "Approved by Director Vikramaditya",
+          "status": "APPROVED",
+          "updatedAt": "2026-11-22T13:19:28.763Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ebe0df2d2d95eb46e306"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:29.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "_id": "6b02ebe0df2d2d95eb46e306",
+      "employee": "6b02ebdfdf2d2d95eb46e2ec",
+      "leaveType": "CASUAL",
+      "startDate": "2026-11-10",
+      "endDate": "2026-11-11",
+      "reason": "Personal family commitment in Chennai",
+      "status": "PENDING",
+      "adminRemarks": "",
+      "createdAt": "2026-11-22T13:19:28.611Z",
+      "updatedAt": "2026-11-22T13:19:28.611Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebe0df2d2d95eb46e306"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:29.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.auditlogs",
+    "o": {
+      "_id": "6b02ebe0df2d2d95eb46e2ff",
+      "action": "ATTENDANCE_CORRECTED",
+      "performedBy": "6b02ebe0df2d2d95eb46e2fe",
+      "performerName": "Admin Vikramaditya",
+      "targetEmployee": "6b02ebdfdf2d2d95eb46e2ec",
+      "employeeCode": "TEST-999",
+      "employeeName": "Test Staff Member",
+      "dateStr": "2026-11-01",
+      "previousValue": {
+        "status": "PRESENT"
+      },
+      "newValue": {
+        "status": "HALF_DAY"
+      },
+      "reason": "Correction verified with architect site log",
+      "createdAt": "2026-11-22T13:19:28.011Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebe0df2d2d95eb46e2ff"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:28.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.attendances",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "remarks": "Shifted to half-day site consultation",
+          "status": "HALF_DAY",
+          "updatedAt": "2026-11-22T13:19:27.900Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02ebdfdf2d2d95eb46e2fa"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:28.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.attendances",
+    "o": {
+      "_id": "6b02ebdfdf2d2d95eb46e2fa",
+      "employee": "6b02ebdfdf2d2d95eb46e2ec",
+      "dateStr": "2026-11-01",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On showroom floor",
+      "createdAt": "2026-11-22T13:19:27.765Z",
+      "updatedAt": "2026-11-22T13:19:27.765Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebdfdf2d2d95eb46e2fa"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:28.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "_id": "6b02ebdfdf2d2d95eb46e2ec",
+      "employeeCode": "TEST-999",
+      "fullName": "Test Staff Member",
+      "email": "teststaff@plynest.com",
+      "phone": "+91 99000 00000",
+      "designation": "Display Specialist",
+      "department": "Store Operations",
+      "joiningDate": "2026-01-01",
+      "isActive": true,
+      "avatarUrl": "",
+      "createdAt": "2026-11-22T13:19:27.031Z",
+      "updatedAt": "2026-11-22T13:19:27.031Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebdfdf2d2d95eb46e2ec"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:01.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.auditlogs",
+    "o": {
+      "_id": "6b02ebc4660251ac0cf534fe",
+      "action": "SYSTEM_SEEDED",
+      "performedBy": "6b02ebc1660251ac0cf534a8",
+      "performerName": "Harish Patel (Hytek Admin)",
+      "newValue": {
+        "database": "hytek_attendance",
+        "employeesCount": 5
+      },
+      "reason": "Initial seeding of Prinson Hytek database",
+      "createdAt": "2026-11-22T13:19:00.164Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc4660251ac0cf534fe"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:01.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.leaverequests",
+    "o": {
+      "_id": "6b02ebc4660251ac0cf534fc",
+      "employee": "6b02ebc1660251ac0cf534aa",
+      "leaveType": "CASUAL",
+      "startDate": "2026-11-22",
+      "endDate": "2026-11-22",
+      "reason": "Personal family commitment",
+      "status": "PENDING",
+      "adminRemarks": "",
+      "createdAt": "2026-11-22T13:19:00.064Z",
+      "updatedAt": "2026-11-22T13:19:00.064Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc4660251ac0cf534fc"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:00.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc4660251ac0cf534fa",
+      "employee": "6b02ebc1660251ac0cf534bc",
+      "dateStr": "2026-11-21",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:19:00.010Z",
+      "updatedAt": "2026-11-22T13:19:00.010Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc4660251ac0cf534fa"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:00.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc3660251ac0cf534f8",
+      "employee": "6b02ebc1660251ac0cf534b8",
+      "dateStr": "2026-11-21",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:59.954Z",
+      "updatedAt": "2026-11-22T13:18:59.954Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc3660251ac0cf534f8"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:00.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc3660251ac0cf534f6",
+      "employee": "6b02ebc1660251ac0cf534b3",
+      "dateStr": "2026-11-21",
+      "status": "HALF_DAY",
+      "checkInTime": "09:30",
+      "checkOutTime": "14:00",
+      "remarks": "Half day approved",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:59.896Z",
+      "updatedAt": "2026-11-22T13:18:59.896Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc3660251ac0cf534f6"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:00.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc3660251ac0cf534f4",
+      "employee": "6b02ebc1660251ac0cf534ae",
+      "dateStr": "2026-11-21",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:59.811Z",
+      "updatedAt": "2026-11-22T13:18:59.811Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc3660251ac0cf534f4"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:00.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc3660251ac0cf534f2",
+      "employee": "6b02ebc1660251ac0cf534aa",
+      "dateStr": "2026-11-21",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:59.735Z",
+      "updatedAt": "2026-11-22T13:18:59.735Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc3660251ac0cf534f2"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:00.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc3660251ac0cf534f0",
+      "employee": "6b02ebc1660251ac0cf534bc",
+      "dateStr": "2026-11-20",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:59.673Z",
+      "updatedAt": "2026-11-22T13:18:59.673Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc3660251ac0cf534f0"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:00.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc3660251ac0cf534ee",
+      "employee": "6b02ebc1660251ac0cf534b8",
+      "dateStr": "2026-11-20",
+      "status": "ABSENT",
+      "checkInTime": "",
+      "checkOutTime": "",
+      "remarks": "Uninformed",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:59.606Z",
+      "updatedAt": "2026-11-22T13:18:59.606Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc3660251ac0cf534ee"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:00.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc3660251ac0cf534ec",
+      "employee": "6b02ebc1660251ac0cf534b3",
+      "dateStr": "2026-11-20",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:59.546Z",
+      "updatedAt": "2026-11-22T13:18:59.546Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc3660251ac0cf534ec"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:00.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc3660251ac0cf534ea",
+      "employee": "6b02ebc1660251ac0cf534ae",
+      "dateStr": "2026-11-20",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:59.447Z",
+      "updatedAt": "2026-11-22T13:18:59.447Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc3660251ac0cf534ea"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:00.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc3660251ac0cf534e8",
+      "employee": "6b02ebc1660251ac0cf534aa",
+      "dateStr": "2026-11-20",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:59.388Z",
+      "updatedAt": "2026-11-22T13:18:59.388Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc3660251ac0cf534e8"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:00.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc3660251ac0cf534e6",
+      "employee": "6b02ebc1660251ac0cf534bc",
+      "dateStr": "2026-11-19",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:59.333Z",
+      "updatedAt": "2026-11-22T13:18:59.333Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc3660251ac0cf534e6"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:00.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc3660251ac0cf534e4",
+      "employee": "6b02ebc1660251ac0cf534b8",
+      "dateStr": "2026-11-19",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:59.248Z",
+      "updatedAt": "2026-11-22T13:18:59.248Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc3660251ac0cf534e4"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:00.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc3660251ac0cf534e2",
+      "employee": "6b02ebc1660251ac0cf534b3",
+      "dateStr": "2026-11-19",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:59.195Z",
+      "updatedAt": "2026-11-22T13:18:59.195Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc3660251ac0cf534e2"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:00.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc3660251ac0cf534e0",
+      "employee": "6b02ebc1660251ac0cf534ae",
+      "dateStr": "2026-11-19",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:59.121Z",
+      "updatedAt": "2026-11-22T13:18:59.121Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc3660251ac0cf534e0"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:19:00.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc2660251ac0cf534de",
+      "employee": "6b02ebc1660251ac0cf534aa",
+      "dateStr": "2026-11-19",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:58.994Z",
+      "updatedAt": "2026-11-22T13:18:58.994Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc2660251ac0cf534de"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:59.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc2660251ac0cf534dc",
+      "employee": "6b02ebc1660251ac0cf534bc",
+      "dateStr": "2026-11-18",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:58.933Z",
+      "updatedAt": "2026-11-22T13:18:58.933Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc2660251ac0cf534dc"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:59.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc2660251ac0cf534da",
+      "employee": "6b02ebc1660251ac0cf534b8",
+      "dateStr": "2026-11-18",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:58.879Z",
+      "updatedAt": "2026-11-22T13:18:58.879Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc2660251ac0cf534da"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:59.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc2660251ac0cf534d8",
+      "employee": "6b02ebc1660251ac0cf534b3",
+      "dateStr": "2026-11-18",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:58.811Z",
+      "updatedAt": "2026-11-22T13:18:58.811Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc2660251ac0cf534d8"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:59.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc2660251ac0cf534d6",
+      "employee": "6b02ebc1660251ac0cf534ae",
+      "dateStr": "2026-11-18",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:58.763Z",
+      "updatedAt": "2026-11-22T13:18:58.763Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc2660251ac0cf534d6"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:59.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc2660251ac0cf534d4",
+      "employee": "6b02ebc1660251ac0cf534aa",
+      "dateStr": "2026-11-18",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:58.702Z",
+      "updatedAt": "2026-11-22T13:18:58.702Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc2660251ac0cf534d4"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:59.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc2660251ac0cf534d2",
+      "employee": "6b02ebc1660251ac0cf534bc",
+      "dateStr": "2026-11-17",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:58.626Z",
+      "updatedAt": "2026-11-22T13:18:58.626Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc2660251ac0cf534d2"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:59.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc2660251ac0cf534d0",
+      "employee": "6b02ebc1660251ac0cf534b8",
+      "dateStr": "2026-11-17",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:58.484Z",
+      "updatedAt": "2026-11-22T13:18:58.484Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc2660251ac0cf534d0"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:59.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc2660251ac0cf534ce",
+      "employee": "6b02ebc1660251ac0cf534b3",
+      "dateStr": "2026-11-17",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:58.426Z",
+      "updatedAt": "2026-11-22T13:18:58.426Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc2660251ac0cf534ce"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:59.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc2660251ac0cf534cc",
+      "employee": "6b02ebc1660251ac0cf534ae",
+      "dateStr": "2026-11-17",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:58.361Z",
+      "updatedAt": "2026-11-22T13:18:58.361Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc2660251ac0cf534cc"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:59.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc2660251ac0cf534ca",
+      "employee": "6b02ebc1660251ac0cf534aa",
+      "dateStr": "2026-11-17",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:58.301Z",
+      "updatedAt": "2026-11-22T13:18:58.301Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc2660251ac0cf534ca"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:59.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc2660251ac0cf534c8",
+      "employee": "6b02ebc1660251ac0cf534bc",
+      "dateStr": "2026-11-16",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:58.200Z",
+      "updatedAt": "2026-11-22T13:18:58.200Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc2660251ac0cf534c8"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:59.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc2660251ac0cf534c6",
+      "employee": "6b02ebc1660251ac0cf534b8",
+      "dateStr": "2026-11-16",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:58.125Z",
+      "updatedAt": "2026-11-22T13:18:58.125Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc2660251ac0cf534c6"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:59.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc2660251ac0cf534c4",
+      "employee": "6b02ebc1660251ac0cf534b3",
+      "dateStr": "2026-11-16",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:58.066Z",
+      "updatedAt": "2026-11-22T13:18:58.066Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc2660251ac0cf534c4"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:58.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc1660251ac0cf534c2",
+      "employee": "6b02ebc1660251ac0cf534ae",
+      "dateStr": "2026-11-16",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:57.992Z",
+      "updatedAt": "2026-11-22T13:18:57.992Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc1660251ac0cf534c2"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:58.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.attendances",
+    "o": {
+      "_id": "6b02ebc1660251ac0cf534c0",
+      "employee": "6b02ebc1660251ac0cf534aa",
+      "dateStr": "2026-11-16",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On time",
+      "markedBy": "6b02ebc1660251ac0cf534a8",
+      "createdAt": "2026-11-22T13:18:57.913Z",
+      "updatedAt": "2026-11-22T13:18:57.913Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc1660251ac0cf534c0"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:58.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.users",
+    "o": {
+      "_id": "6b02ebc1660251ac0cf534be",
+      "identifier": "siddharth@hytek.com",
+      "passwordHash": "$2a$10$bLojVPY2GXjhRf43kQfEouF7lJ81uf0xJwZR6xJdtw5.A9EeOKzh.",
+      "role": "EMPLOYEE",
+      "employee": "6b02ebc1660251ac0cf534bc",
+      "name": "Siddharth Joshi",
+      "isActive": true,
+      "tokenVersion": 0,
+      "createdAt": "2026-11-22T13:18:57.858Z",
+      "updatedAt": "2026-11-22T13:18:57.858Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc1660251ac0cf534be"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:58.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.employees",
+    "o": {
+      "_id": "6b02ebc1660251ac0cf534bc",
+      "employeeCode": "PH-105",
+      "fullName": "Siddharth Joshi",
+      "email": "siddharth@hytek.com",
+      "phone": "+91 98450 22105",
+      "designation": "Automation Engineer",
+      "department": "Robotics & Testing",
+      "joiningDate": "2023-09-20",
+      "isActive": true,
+      "avatarUrl": "",
+      "createdAt": "2026-11-22T13:18:57.799Z",
+      "updatedAt": "2026-11-22T13:18:57.799Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc1660251ac0cf534bc"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:58.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.users",
+    "o": {
+      "_id": "6b02ebc1660251ac0cf534ba",
+      "identifier": "deepa@hytek.com",
+      "passwordHash": "$2a$10$bLojVPY2GXjhRf43kQfEouF7lJ81uf0xJwZR6xJdtw5.A9EeOKzh.",
+      "role": "EMPLOYEE",
+      "employee": "6b02ebc1660251ac0cf534b8",
+      "name": "Deepa Rao",
+      "isActive": true,
+      "tokenVersion": 0,
+      "createdAt": "2026-11-22T13:18:57.733Z",
+      "updatedAt": "2026-11-22T13:18:57.733Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc1660251ac0cf534ba"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:58.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.employees",
+    "o": {
+      "_id": "6b02ebc1660251ac0cf534b8",
+      "employeeCode": "PH-104",
+      "fullName": "Deepa Rao",
+      "email": "deepa@hytek.com",
+      "phone": "+91 98450 22104",
+      "designation": "Procurement & Supply Officer",
+      "department": "Supply Chain",
+      "joiningDate": "2023-08-01",
+      "isActive": true,
+      "avatarUrl": "",
+      "createdAt": "2026-11-22T13:18:57.681Z",
+      "updatedAt": "2026-11-22T13:18:57.681Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc1660251ac0cf534b8"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:58.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.users",
+    "o": {
+      "_id": "6b02ebc1660251ac0cf534b6",
+      "identifier": "karthik@hytek.com",
+      "passwordHash": "$2a$10$bLojVPY2GXjhRf43kQfEouF7lJ81uf0xJwZR6xJdtw5.A9EeOKzh.",
+      "role": "EMPLOYEE",
+      "employee": "6b02ebc1660251ac0cf534b3",
+      "name": "Karthik Reddy",
+      "isActive": true,
+      "tokenVersion": 0,
+      "createdAt": "2026-11-22T13:18:57.621Z",
+      "updatedAt": "2026-11-22T13:18:57.621Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc1660251ac0cf534b6"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:58.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.employees",
+    "o": {
+      "_id": "6b02ebc1660251ac0cf534b3",
+      "employeeCode": "PH-103",
+      "fullName": "Karthik Reddy",
+      "email": "karthik@hytek.com",
+      "phone": "+91 98450 22103",
+      "designation": "Assembly Technician",
+      "department": "Modular Systems",
+      "joiningDate": "2023-06-10",
+      "isActive": true,
+      "avatarUrl": "",
+      "createdAt": "2026-11-22T13:18:57.515Z",
+      "updatedAt": "2026-11-22T13:18:57.515Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc1660251ac0cf534b3"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:58.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.users",
+    "o": {
+      "_id": "6b02ebc1660251ac0cf534b1",
+      "identifier": "priya@hytek.com",
+      "passwordHash": "$2a$10$bLojVPY2GXjhRf43kQfEouF7lJ81uf0xJwZR6xJdtw5.A9EeOKzh.",
+      "role": "EMPLOYEE",
+      "employee": "6b02ebc1660251ac0cf534ae",
+      "name": "Priya Nair",
+      "isActive": true,
+      "tokenVersion": 0,
+      "createdAt": "2026-11-22T13:18:57.446Z",
+      "updatedAt": "2026-11-22T13:18:57.446Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc1660251ac0cf534b1"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:58.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.employees",
+    "o": {
+      "_id": "6b02ebc1660251ac0cf534ae",
+      "employeeCode": "PH-102",
+      "fullName": "Priya Nair",
+      "email": "priya@hytek.com",
+      "phone": "+91 98450 22102",
+      "designation": "Quality Assurance Lead",
+      "department": "Inspection & Metrology",
+      "joiningDate": "2023-04-15",
+      "isActive": true,
+      "avatarUrl": "",
+      "createdAt": "2026-11-22T13:18:57.396Z",
+      "updatedAt": "2026-11-22T13:18:57.396Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc1660251ac0cf534ae"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:58.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.users",
+    "o": {
+      "_id": "6b02ebc1660251ac0cf534ac",
+      "identifier": "arun@hytek.com",
+      "passwordHash": "$2a$10$bLojVPY2GXjhRf43kQfEouF7lJ81uf0xJwZR6xJdtw5.A9EeOKzh.",
+      "role": "EMPLOYEE",
+      "employee": "6b02ebc1660251ac0cf534aa",
+      "name": "Arun Kumar",
+      "isActive": true,
+      "tokenVersion": 0,
+      "createdAt": "2026-11-22T13:18:57.340Z",
+      "updatedAt": "2026-11-22T13:18:57.340Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc1660251ac0cf534ac"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:58.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.employees",
+    "o": {
+      "_id": "6b02ebc1660251ac0cf534aa",
+      "employeeCode": "PH-101",
+      "fullName": "Arun Kumar",
+      "email": "arun@hytek.com",
+      "phone": "+91 98450 22101",
+      "designation": "CNC Operations Specialist",
+      "department": "Precision Machining",
+      "joiningDate": "2023-03-01",
+      "isActive": true,
+      "avatarUrl": "",
+      "createdAt": "2026-11-22T13:18:57.218Z",
+      "updatedAt": "2026-11-22T13:18:57.218Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc1660251ac0cf534aa"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:58.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.users",
+    "o": {
+      "_id": "6b02ebc1660251ac0cf534a8",
+      "identifier": "admin@hytek.com",
+      "passwordHash": "$2a$10$a6dtozmiXPYs3KX33lubcug7FQpJ0C/2NAPD7QWU1QA4cIN/.4hKK",
+      "role": "ADMIN",
+      "name": "Harish Patel",
+      "isActive": true,
+      "tokenVersion": 0,
+      "createdAt": "2026-11-22T13:18:57.168Z",
+      "updatedAt": "2026-11-22T13:18:57.168Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc1660251ac0cf534a8"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:57.000Z",
+    "op": "i",
+    "ns": "hytek_attendance.settings",
+    "o": {
+      "_id": "6b02ebc0660251ac0cf534a5",
+      "key": "default_config",
+      "showroomName": "Prinson Hytek Industrial Facility",
+      "showroomAddress": "Plot 18, Phase 2, Peenya Industrial Complex, Bangalore",
+      "timezone": "Asia/Kolkata",
+      "enableCheckInOut": true,
+      "halfDayThresholdHours": 4.5,
+      "standardWorkHoursStart": "09:30",
+      "standardWorkHoursEnd": "18:30",
+      "createdAt": "2026-11-22T13:18:56.924Z",
+      "updatedAt": "2026-11-22T13:18:56.924Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02ebc0660251ac0cf534a5"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:57.000Z",
+    "op": "d",
+    "ns": "hytek_attendance.settings",
+    "o": {
+      "_id": "6aee941bc4a8f486f69aba55"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:57.000Z",
+    "op": "d",
+    "ns": "hytek_attendance.auditlogs",
+    "o": {
+      "_id": "6aee9420c4a8f486f69abaad"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:57.000Z",
+    "op": "d",
+    "ns": "hytek_attendance.users",
+    "o": {
+      "_id": "6aee941bc4a8f486f69aba58"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:29.000Z",
+    "op": "d",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "_id": "6b02eba2699c33caadf4086d"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:28.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "isActive": false,
+          "updatedAt": "2026-11-22T13:18:27.646Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02eba2699c33caadf4086d"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:28.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "_id": "6b02eba3699c33caadf4088d",
+      "employee": "6b02eba2699c33caadf4086d",
+      "leaveType": "OTHER",
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-20",
+      "reason": "Weekend extension",
+      "status": "REJECTED",
+      "adminRemarks": "Showroom promotional exhibition scheduled that day",
+      "createdAt": "2026-11-22T13:18:27.538Z",
+      "updatedAt": "2026-11-22T13:18:27.538Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02eba3699c33caadf4088d"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:28.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.attendances",
+    "o": {
+      "_id": "6b02eba4a941bde1f2566162",
+      "employee": "6b02eba2699c33caadf4086d",
+      "dateStr": "2026-11-10",
+      "__v": 0,
+      "checkInTime": "",
+      "checkOutTime": "",
+      "createdAt": "2026-11-22T13:18:27.388Z",
+      "leaveRequest": "6b02eba3699c33caadf40887",
+      "remarks": "Approved leave (CASUAL): Approved by Director Vikramaditya",
+      "status": "APPROVED_LEAVE",
+      "updatedAt": "2026-11-22T13:18:27.388Z"
+    },
+    "o2": {
+      "_id": "6b02eba4a941bde1f2566162"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:28.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "adminRemarks": "Approved by Director Vikramaditya",
+          "status": "APPROVED",
+          "updatedAt": "2026-11-22T13:18:27.313Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02eba3699c33caadf40887"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:28.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.leaverequests",
+    "o": {
+      "_id": "6b02eba3699c33caadf40887",
+      "employee": "6b02eba2699c33caadf4086d",
+      "leaveType": "CASUAL",
+      "startDate": "2026-11-10",
+      "endDate": "2026-11-11",
+      "reason": "Personal family commitment in Chennai",
+      "status": "PENDING",
+      "adminRemarks": "",
+      "createdAt": "2026-11-22T13:18:27.183Z",
+      "updatedAt": "2026-11-22T13:18:27.183Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02eba3699c33caadf40887"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:27.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.auditlogs",
+    "o": {
+      "_id": "6b02eba2699c33caadf4087d",
+      "action": "ATTENDANCE_CORRECTED",
+      "performedBy": "6b02eba2699c33caadf4087c",
+      "performerName": "Admin Vikramaditya",
+      "targetEmployee": "6b02eba2699c33caadf4086d",
+      "employeeCode": "TEST-999",
+      "employeeName": "Test Staff Member",
+      "dateStr": "2026-11-01",
+      "previousValue": {
+        "status": "PRESENT"
+      },
+      "newValue": {
+        "status": "HALF_DAY"
+      },
+      "reason": "Correction verified with architect site log",
+      "createdAt": "2026-11-22T13:18:26.802Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02eba2699c33caadf4087d"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:27.000Z",
+    "op": "u",
+    "ns": "plynest_attendance.attendances",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "remarks": "Shifted to half-day site consultation",
+          "status": "HALF_DAY",
+          "updatedAt": "2026-11-22T13:18:26.739Z"
+        }
+      }
+    },
+    "o2": {
+      "_id": "6b02eba2699c33caadf40874"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:27.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.attendances",
+    "o": {
+      "_id": "6b02eba2699c33caadf40874",
+      "employee": "6b02eba2699c33caadf4086d",
+      "dateStr": "2026-11-01",
+      "status": "PRESENT",
+      "checkInTime": "09:30",
+      "checkOutTime": "18:30",
+      "remarks": "On showroom floor",
+      "createdAt": "2026-11-22T13:18:26.617Z",
+      "updatedAt": "2026-11-22T13:18:26.617Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02eba2699c33caadf40874"
+    }
+  },
+  {
+    "ts": "2026-11-22T13:18:27.000Z",
+    "op": "i",
+    "ns": "plynest_attendance.employees",
+    "o": {
+      "_id": "6b02eba2699c33caadf4086d",
+      "employeeCode": "TEST-999",
+      "fullName": "Test Staff Member",
+      "email": "teststaff@plynest.com",
+      "phone": "+91 99000 00000",
+      "designation": "Display Specialist",
+      "department": "Store Operations",
+      "joiningDate": "2026-01-01",
+      "isActive": true,
+      "avatarUrl": "",
+      "createdAt": "2026-11-22T13:18:26.263Z",
+      "updatedAt": "2026-11-22T13:18:26.263Z",
+      "__v": 0
+    },
+    "o2": {
+      "_id": "6b02eba2699c33caadf4086d"
+    }
+  }
+]

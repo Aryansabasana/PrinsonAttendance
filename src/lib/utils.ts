@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export type AttendanceStatus = "PRESENT" | "ABSENT" | "HALF_DAY" | "APPROVED_LEAVE" | "NOT_MARKED";
+export type AttendanceStatus = "PRESENT" | "ABSENT" | "HALF_DAY" | "APPROVED_LEAVE" | "NOT_MARKED" | "HOLIDAY";
 export type LeaveType = "CASUAL" | "SICK" | "PERSONAL" | "OTHER";
 export type LeaveStatus = "PENDING" | "APPROVED" | "REJECTED" | "CANCELLED";
 export type UserRole = "ADMIN" | "EMPLOYEE";
@@ -57,6 +57,15 @@ export const ATTENDANCE_STATUS_META: Record<
     dotColor: "bg-zinc-500",
     calendarBg: "bg-zinc-50 text-zinc-700 border-zinc-200",
     textColor: "text-zinc-700",
+  },
+  HOLIDAY: {
+    label: "Holiday",
+    description: "Official declared holiday",
+    badgeClass: "bg-blue-50 text-blue-700 border-blue-200 ring-blue-500/20",
+    chipClass: "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-600",
+    dotColor: "bg-blue-600",
+    calendarBg: "bg-blue-50/70 text-blue-800 border-blue-200",
+    textColor: "text-blue-700",
   },
   NOT_MARKED: {
     label: "Not Marked",

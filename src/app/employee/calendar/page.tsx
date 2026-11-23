@@ -150,6 +150,10 @@ export default function EmployeeCalendarPage() {
             <span>Approved Leave</span>
           </div>
           <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-blue-600" />
+            <span>Holiday</span>
+          </div>
+          <div className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-red-600" />
             <span>Absent</span>
           </div>
@@ -168,37 +172,37 @@ export default function EmployeeCalendarPage() {
             ))}
 
             {calendarData?.days?.map((day: any) => {
-              const meta =
-                ATTENDANCE_STATUS_META[day.status as keyof typeof ATTENDANCE_STATUS_META] ||
-                ATTENDANCE_STATUS_META.NOT_MARKED;
+              const isHol = day.isHoliday || day.status === "HOLIDAY";
+              const meta = isHol
+                ? ATTENDANCE_STATUS_META.HOLIDAY
+                : ATTENDANCE_STATUS_META[day.status as keyof typeof ATTENDANCE_STATUS_META] ||
+                  ATTENDANCE_STATUS_META.NOT_MARKED;
 
               return (
                 <div
                   key={day.dateStr}
                   onClick={() => setSelectedDay(day)}
-                  className={`min-h-[85px] p-2.5 rounded-xl border cursor-pointer hover:shadow-md transition-all flex flex-col justify-between ${
-                    day.isSunday
-                      ? "bg-zinc-100/50 border-zinc-200 text-zinc-400"
-                      : meta.calendarBg
-                  }`}
+                  className={`min-h-[85px] p-2.5 rounded-xl border cursor-pointer hover:shadow-md transition-all flex flex-col justify-between ${meta.calendarBg}`}
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold font-mono">{day.day}</span>
-                    {day.isSunday && (
-                      <span className="text-[9px] uppercase font-bold text-zinc-400">Off</span>
+                    {isHol && (
+                      <span className="text-[9px] uppercase font-bold text-blue-700 bg-blue-100 px-1.5 py-0.5 rounded border border-blue-200">
+                        Holiday
+                      </span>
                     )}
                   </div>
 
-                  {!day.isSunday && (
-                    <div className="mt-auto">
-                      <span className="text-[10px] font-bold block">{meta.label}</span>
-                      {day.checkInTime && (
-                        <span className="text-[9px] font-mono text-zinc-500 block">
-                          {day.checkInTime}
-                        </span>
-                      )}
-                    </div>
-                  )}
+                  <div className="mt-auto">
+                    <span className="text-[10px] font-bold block">
+                      {isHol ? (day.holidayName || "Holiday") : meta.label}
+                    </span>
+                    {!isHol && day.checkInTime && (
+                      <span className="text-[9px] font-mono text-zinc-500 block">
+                        {day.checkInTime}
+                      </span>
+                    )}
+                  </div>
                 </div>
               );
             })}
@@ -223,7 +227,13 @@ export default function EmployeeCalendarPage() {
             <div className="space-y-3 p-4 bg-zinc-50 rounded-xl border border-zinc-200">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-semibold text-zinc-500">Status:</span>
-                <StatusBadge status={selectedDay.status} size="sm" />
+                {selectedDay.isHoliday || selectedDay.status === "HOLIDAY" ? (
+                  <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
+                    Holiday ({selectedDay.holidayName || "Official"})
+                  </span>
+                ) : (
+                  <StatusBadge status={selectedDay.status} size="sm" />
+                )}
               </div>
 
               <div className="flex items-center justify-between">

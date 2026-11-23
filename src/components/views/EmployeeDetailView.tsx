@@ -463,34 +463,36 @@ export function EmployeeDetailView({ company = "plynest" }: EmployeeDetailViewPr
                 </div>
               ) : (
                 calData?.days?.map((day: any) => {
-                  const meta = ATTENDANCE_STATUS_META[day.status as keyof typeof ATTENDANCE_STATUS_META] || ATTENDANCE_STATUS_META.NOT_MARKED;
+                  const isHol = day.isHoliday || day.status === "HOLIDAY";
+                  const meta = isHol
+                    ? ATTENDANCE_STATUS_META.HOLIDAY
+                    : ATTENDANCE_STATUS_META[day.status as keyof typeof ATTENDANCE_STATUS_META] ||
+                      ATTENDANCE_STATUS_META.NOT_MARKED;
 
                   return (
                     <div
                       key={day.dateStr}
-                      className={`min-h-[75px] p-2 rounded-xl border flex flex-col justify-between transition-colors ${
-                        day.isSunday
-                          ? "bg-zinc-100/50 border-zinc-200 text-zinc-400"
-                          : meta.calendarBg
-                      }`}
+                      className={`min-h-[75px] p-2 rounded-xl border flex flex-col justify-between transition-colors ${meta.calendarBg}`}
                     >
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-bold">{day.day}</span>
-                        {day.isSunday && (
-                          <span className="text-[9px] uppercase font-bold text-zinc-400">Off</span>
+                        {isHol && (
+                          <span className="text-[9px] uppercase font-bold text-blue-700 bg-blue-100 px-1.5 py-0.5 rounded border border-blue-200">
+                            Holiday
+                          </span>
                         )}
                       </div>
 
-                      {!day.isSunday && (
-                        <div className="mt-auto">
-                          <p className="text-[10px] font-bold leading-tight">{meta.label}</p>
-                          {day.checkInTime && (
-                            <p className="text-[9px] font-mono text-zinc-500 mt-0.5">
-                              {day.checkInTime}
-                            </p>
-                          )}
-                        </div>
-                      )}
+                      <div className="mt-auto">
+                        <p className="text-[10px] font-bold leading-tight">
+                          {isHol ? (day.holidayName || "Holiday") : meta.label}
+                        </p>
+                        {!isHol && day.checkInTime && (
+                          <p className="text-[9px] font-mono text-zinc-500 mt-0.5">
+                            {day.checkInTime}
+                          </p>
+                        )}
+                      </div>
                     </div>
                   );
                 })

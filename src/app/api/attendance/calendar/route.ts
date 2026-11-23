@@ -40,10 +40,13 @@ export async function GET(request: NextRequest) {
 
     // If specific employee selected:
     if (targetEmployeeId) {
-      const [employee, attendances] = await Promise.all([
+      const [employee, attendances, holidays] = await Promise.all([
         models.Employee.findById(targetEmployeeId).lean(),
         models.Attendance.find({
           employee: targetEmployeeId,
+          dateStr: { $gte: startDateStr, $lte: endDateStr },
+        }).lean(),
+        models.Holiday.find({
           dateStr: { $gte: startDateStr, $lte: endDateStr },
         }).lean(),
       ]);
@@ -55,6 +58,9 @@ export async function GET(request: NextRequest) {
       const attendanceMap = new Map<string, any>();
       attendances.forEach((a) => attendanceMap.set(a.dateStr, a));
 
+      const holidayMap = new Map<string, any>();
+      holidays.forEach((h) => holidayMap.set(h.dateStr, h));
+
       // Build daily map for all days of this month
       const days = [];
       let presentCount = 0;
@@ -62,16 +68,21 @@ export async function GET(request: NextRequest) {
       let halfDayCount = 0;
       let approvedLeaveCount = 0;
       let notMarkedCount = 0;
+      let holidayCount = 0;
 
       for (let day = 1; day <= lastDay; day++) {
         const dStr = `${year}-${monthStr}-${String(day).padStart(2, "0")}`;
         const record = attendanceMap.get(dStr);
+        const holiday = holidayMap.get(dStr);
         const dayOfWeek = new Date(year, month - 1, day).getDay();
         const isSunday = dayOfWeek === 0;
+        const isHoliday = Boolean(holiday);
+        const holidayName = holiday?.name || "";
 
-        let status = record?.status || "NOT_MARKED";
+        let status = isHoliday ? "HOLIDAY" : (record?.status || "NOT_MARKED");
 
-        if (status === "PRESENT") presentCount++;
+        if (status === "HOLIDAY") holidayCount++;
+        else if (status === "PRESENT") presentCount++;
         else if (status === "ABSENT") absentCount++;
         else if (status === "HALF_DAY") halfDayCount++;
         else if (status === "APPROVED_LEAVE") approvedLeaveCount++;
@@ -82,10 +93,12 @@ export async function GET(request: NextRequest) {
           day,
           dayOfWeek,
           isSunday,
+          isHoliday,
+          holidayName,
           status,
           checkInTime: record?.checkInTime || "",
           checkOutTime: record?.checkOutTime || "",
-          remarks: record?.remarks || "",
+          remarks: record?.remarks || (isHoliday ? holidayName : ""),
         });
       }
 
@@ -109,6 +122,7 @@ export async function GET(request: NextRequest) {
           halfDayCount,
           approvedLeaveCount,
           notMarkedCount,
+          holidayCount,
           totalMarkedDays,
           hasStarted,
           attendancePercentage,
@@ -125,12 +139,18 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const [allActiveEmployees, monthlyAttendances] = await Promise.all([
+    const [allActiveEmployees, monthlyAttendances, monthlyHolidays] = await Promise.all([
       models.Employee.find({ isActive: true }).select("_id fullName employeeCode designation").lean(),
       models.Attendance.find({
         dateStr: { $gte: startDateStr, $lte: endDateStr },
       }).lean(),
+      models.Holiday.find({
+        dateStr: { $gte: startDateStr, $lte: endDateStr },
+      }).lean(),
     ]);
+
+    const holidayMap = new Map<string, any>();
+    monthlyHolidays.forEach((h) => holidayMap.set(h.dateStr, h));
 
     const dailyAggregates: Record<
       string,
@@ -163,6 +183,9 @@ export async function GET(request: NextRequest) {
     for (let day = 1; day <= lastDay; day++) {
       const dStr = `${year}-${monthStr}-${String(day).padStart(2, "0")}`;
       const dayOfWeek = new Date(year, month - 1, day).getDay();
+      const holiday = holidayMap.get(dStr);
+      const isHoliday = Boolean(holiday);
+      const holidayName = holiday?.name || "";
       const agg = dailyAggregates[dStr];
       const markedCount = agg.present + agg.absent + agg.halfDay + agg.approvedLeave;
       agg.notMarked = Math.max(0, totalActive - markedCount);
@@ -172,6 +195,8 @@ export async function GET(request: NextRequest) {
         day,
         dayOfWeek,
         isSunday: dayOfWeek === 0,
+        isHoliday,
+        holidayName,
         counts: agg,
         totalEmployees: totalActive,
       });

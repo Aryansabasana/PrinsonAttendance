@@ -3,7 +3,7 @@ import mongoose, { Schema, Document, Model } from "mongoose";
 export interface IAttendance extends Document {
   employee: mongoose.Types.ObjectId;
   dateStr: string; // YYYY-MM-DD format
-  status: "PRESENT" | "ABSENT" | "HALF_DAY" | "APPROVED_LEAVE" | "NOT_MARKED";
+  status: "PRESENT" | "ABSENT" | "HALF_DAY" | "APPROVED_LEAVE" | "NOT_MARKED" | "HOLIDAY";
   checkInTime?: string; // HH:mm format
   checkOutTime?: string; // HH:mm format
   remarks?: string;
@@ -29,7 +29,7 @@ export const AttendanceSchema: Schema = new Schema(
     },
     status: {
       type: String,
-      enum: ["PRESENT", "ABSENT", "HALF_DAY", "APPROVED_LEAVE", "NOT_MARKED"],
+      enum: ["PRESENT", "ABSENT", "HALF_DAY", "APPROVED_LEAVE", "NOT_MARKED", "HOLIDAY"],
       default: "NOT_MARKED",
       required: true,
       index: true,

@@ -370,6 +370,143 @@ async function runTests() {
   const resBad = await loginHandler(reqBad);
   assert(resBad.status === 401, "Invalid password correctly rejected with 401");
 
+  // Test 16: Admin Declared Holiday & Attendance Lockout Feature
+  console.log("\n▶ TEST 16: Admin Declared Holiday & Attendance Lockout");
+  const { signSessionToken } = await import("../src/lib/auth");
+  const { POST: holidayPostHandler, DELETE: holidayDeleteHandler } = await import("../src/app/api/attendance/holiday/route");
+  const { POST: dailyPostHandler, GET: dailyGetHandler } = await import("../src/app/api/attendance/daily/route");
+  const { POST: bulkPostHandler } = await import("../src/app/api/attendance/bulk/route");
+  const { GET: calendarGetHandler } = await import("../src/app/api/attendance/calendar/route");
+
+  const pAdminUser = await plynestModels.User.findOne({ identifier: "admin@plynest.com" }).lean();
+  const pEmp = await plynestModels.Employee.findOne({ isActive: true }).lean();
+  assert(Boolean(pAdminUser), "Plynest admin user found for holiday tests");
+  assert(Boolean(pEmp), "Plynest employee found for holiday tests");
+
+  const adminToken = await signSessionToken({
+    userId: pAdminUser!._id.toString(),
+    role: "ADMIN",
+    name: pAdminUser!.name,
+    company: "plynest",
+    tokenVersion: pAdminUser!.tokenVersion || 0,
+  });
+
+  const adminHeaders = {
+    "Content-Type": "application/json",
+    cookie: `plynest_session=${adminToken}`,
+  };
+
+  // Clean any existing holiday or attendance on test dates 2026-11-29 (Sunday) & 2026-11-22 (Sunday)
+  await plynestModels.Holiday.deleteMany({ dateStr: { $in: ["2026-11-29", "2026-11-22"] } });
+  await plynestModels.Attendance.deleteMany({ dateStr: { $in: ["2026-11-29", "2026-11-22"] } });
+
+  // A. Admin declares holiday on Sunday 2026-11-29
+  const declareReq = new NextRequest("http://localhost:3000/api/attendance/holiday", {
+    method: "POST",
+    headers: adminHeaders,
+    body: JSON.stringify({ dateStr: "2026-11-29", name: "Sunday Off" }),
+  });
+  const declareRes = await holidayPostHandler(declareReq);
+  const declareData = await declareRes.json();
+  assert(declareRes.status === 200, "Admin successfully declares holiday on 2026-11-29");
+  assert(declareData.holiday?.name === "Sunday Off", "Declared holiday name is 'Sunday Off'");
+
+  // B. GET /api/attendance/daily reflects holiday status
+  const dailyGetReq = new NextRequest("http://localhost:3000/api/attendance/daily?dateStr=2026-11-29", {
+    method: "GET",
+    headers: adminHeaders,
+  });
+  const dailyGetRes = await dailyGetHandler(dailyGetReq);
+  const dailyGetData = await dailyGetRes.json();
+  assert(dailyGetData.isHoliday === true, "Daily register endpoint reports isHoliday: true for 2026-11-29");
+  assert(dailyGetData.holiday?.name === "Sunday Off", "Daily register endpoint returns holiday metadata");
+
+  // C. Marking attendance on declared holiday is REJECTED with 400
+  const markHolidayReq = new NextRequest("http://localhost:3000/api/attendance/daily", {
+    method: "POST",
+    headers: adminHeaders,
+    body: JSON.stringify({
+      employeeId: pEmp!._id.toString(),
+      dateStr: "2026-11-29",
+      status: "PRESENT",
+      checkInTime: "09:30",
+    }),
+  });
+  const markHolidayRes = await dailyPostHandler(markHolidayReq);
+  const markHolidayData = await markHolidayRes.json();
+  assert(markHolidayRes.status === 400, "Marking individual attendance on declared holiday is rejected with 400");
+  assert(markHolidayData.error?.includes("declared as a Holiday") === true, "Rejection error states date is a declared Holiday");
+
+  // D. Bulk marking attendance on declared holiday is REJECTED with 400
+  const bulkHolidayReq = new NextRequest("http://localhost:3000/api/attendance/bulk", {
+    method: "POST",
+    headers: adminHeaders,
+    body: JSON.stringify({
+      employeeIds: [pEmp!._id.toString()],
+      dateStr: "2026-11-29",
+      status: "PRESENT",
+      checkInTime: "09:30",
+    }),
+  });
+  const bulkHolidayRes = await bulkPostHandler(bulkHolidayReq);
+  const bulkHolidayData = await bulkHolidayRes.json();
+  assert(bulkHolidayRes.status === 400, "Bulk marking attendance on declared holiday is rejected with 400");
+  assert(bulkHolidayData.error?.includes("declared as a Holiday") === true, "Bulk rejection error states date is a declared Holiday");
+
+  // E. Sunday that is NOT declared as holiday CAN have attendance marked normally!
+  const markSundayReq = new NextRequest("http://localhost:3000/api/attendance/daily", {
+    method: "POST",
+    headers: adminHeaders,
+    body: JSON.stringify({
+      employeeId: pEmp!._id.toString(),
+      dateStr: "2026-11-22",
+      status: "PRESENT",
+      checkInTime: "09:30",
+    }),
+  });
+  const markSundayRes = await dailyPostHandler(markSundayReq);
+  assert(markSundayRes.status === 200, "Attendance CAN be marked on a Sunday (2026-11-22) when NOT declared as a holiday");
+
+  // F. Calendar endpoint reflects declared holiday and working Sunday
+  const calReq = new NextRequest("http://localhost:3000/api/attendance/calendar?year=2026&month=11", {
+    method: "GET",
+    headers: adminHeaders,
+  });
+  const calRes = await calendarGetHandler(calReq);
+  const calData = await calRes.json();
+  const day29 = calData.days?.find((d: any) => d.dateStr === "2026-11-29");
+  const day22 = calData.days?.find((d: any) => d.dateStr === "2026-11-22");
+  assert(day29?.isHoliday === true, "Calendar marks 2026-11-29 as isHoliday: true");
+  assert(day29?.holidayName === "Sunday Off", "Calendar includes holidayName for 2026-11-29");
+  assert(day22?.isHoliday === false, "Calendar marks undeclared Sunday 2026-11-22 as isHoliday: false");
+  assert(day22?.counts?.present > 0, "Calendar displays attendance activity on undeclared Sunday 2026-11-22");
+
+  // G. Admin cancels declared holiday on 2026-11-29
+  const cancelReq = new NextRequest("http://localhost:3000/api/attendance/holiday?dateStr=2026-11-29", {
+    method: "DELETE",
+    headers: adminHeaders,
+  });
+  const cancelRes = await holidayDeleteHandler(cancelReq);
+  assert(cancelRes.status === 200, "Admin cancels declared holiday on 2026-11-29");
+
+  // H. After holiday cancellation, attendance CAN now be marked on 2026-11-29
+  const markAfterCancelReq = new NextRequest("http://localhost:3000/api/attendance/daily", {
+    method: "POST",
+    headers: adminHeaders,
+    body: JSON.stringify({
+      employeeId: pEmp!._id.toString(),
+      dateStr: "2026-11-29",
+      status: "PRESENT",
+      checkInTime: "09:30",
+    }),
+  });
+  const markAfterCancelRes = await dailyPostHandler(markAfterCancelReq);
+  assert(markAfterCancelRes.status === 200, "Attendance can now be marked on 2026-11-29 after holiday is cancelled");
+
+  // Clean up test data
+  await plynestModels.Holiday.deleteMany({ dateStr: { $in: ["2026-11-29", "2026-11-22"] } });
+  await plynestModels.Attendance.deleteMany({ dateStr: { $in: ["2026-11-29", "2026-11-22"] } });
+
   console.log("\n=======================================================");
   console.log(`TEST SUITE COMPLETED: ${passedCount} PASSED, ${failedCount} FAILED`);
   console.log("ALL VERIFICATIONS COMPLETED SUCCESSFULLY!");

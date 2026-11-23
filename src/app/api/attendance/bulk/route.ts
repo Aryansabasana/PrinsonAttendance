@@ -25,6 +25,17 @@ export async function POST(request: NextRequest) {
 
     const { dateStr, employeeIds, status, checkInTime = "", checkOutTime = "", remarks = "" } = parsed.data;
 
+    // Check if the date has been declared as a Holiday by the Admin
+    const holiday = await models.Holiday.findOne({ dateStr }).lean();
+    if (holiday) {
+      return NextResponse.json(
+        {
+          error: `Cannot bulk mark attendance: ${dateStr} has been declared as a Holiday (${holiday.name}). Attendance marking is disabled on holidays.`,
+        },
+        { status: 400 }
+      );
+    }
+
     // Fetch employee details for audit log
     const employees = await models.Employee.find({ _id: { $in: employeeIds } }).lean();
 
