@@ -1,4 +1,4 @@
-# Prinson Plynest — Employee Attendance Portal
+# Prinson Plynest — Employee Attendance Portals
 
 An exclusive, high-end, responsive employee attendance and leave management web application tailored specifically for **Prinson Plynest Showroom** (Architectural Wood Panels, Veneers & Interior Surfaces).
 
